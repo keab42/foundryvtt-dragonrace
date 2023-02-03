@@ -154,7 +154,7 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
             const messageData = {
                 speaker: ChatMessage.getSpeaker({actor: this.actor}),
                 content: `
-                    <div class="honeyheist">
+                    <div class="definitelywizards">
                         <div class="chatItem flexrow">
                             <div class="item-image" tabindex="0" aria-label="${item.name}" style="background-image: url('${item.img}')"></div>
                             <h4>${item.name}</h4>
