@@ -43,9 +43,6 @@ export class DefinitelyWizardsActor extends Actor {
             await this.update({ "system.stats.wizard": wizardStat });
             await this.update({ "system.stats.wild": wildStat });
 
-            console.log(this.system.stats.wizard);
-            console.log(this.system.stats.wild);
-
             // Check to see if either the bear or criminal stat has reached 6,
             // which means it's the end for this bear.
             if (wildStat >= 7) {

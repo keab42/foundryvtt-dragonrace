@@ -14,6 +14,24 @@
         grid-template-rows: max-content max-content 1fr;
         gap: @margin;
 
+        nav.sheet-tabs {
+
+            border-top: none;
+            border-bottom: 1px solid @textColor;
+
+            a.active {
+                background-color: @medDarkColor;
+            }
+
+            a {
+                border: 1px solid @darkColor;
+                border-radius: 10px 10px 0px 0px;
+                flex: 1;
+                font-family: Title;
+            }
+
+        }
+
         #stat-panel {
             gap: @margin;
             height: auto;
@@ -92,9 +110,13 @@
                 grid-area: value;
             }
         }
-        #attributes-panel,#bio-panel {
-            max-height: 260px;
+
+        #attributes-tab {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto 1fr;
         }
+
         #attributes-panel {
             margin-right: 0.5rem;
 
@@ -130,7 +152,6 @@
         #bio-panel {
             display: grid;
             grid-template-rows: max-content 1fr;
-            flex: 1;
 
             .editor {
                 min-height: 150px;
@@ -139,23 +160,41 @@
             }
         }
 
+        #class-description-panel {
+            display: grid;
+            grid-template-rows: max-content 1fr;
+            margin-right: 0.5rem;
+
+            .class-description {
+                min-height: 50px;
+                max-height:  100px;
+                overflow-y: auto;
+                border: 0;
+                background: transparent;
+            }
+        }
+
         #middle-panel {
-            display: flex;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: repeat(2, 1fr);
             justify-content: space-between;
             flex-wrap: nowrap;
+            height: auto;
             margin-top: 14px;
         }
 
-        #items-panel {
-            .hh-item-list {
+        #items-panel, #props-panel, #spells-panel {
+
+            .dw-item-list, .dw-spell-list, .dw-prop-list {
                 overflow-y: auto;
                 height: 175px;
             }
-            .add-item {
+            .add-item, .add-spell, .add-prop {
                 font-size: 0.7rem;
                 align-self: center;
             }
-            .add-item:hover {
+            .add-item:hover, .add-spell:hover, .add-prop:hover {
                 text-shadow: 2px 2px 4px var(--color-text-dark-5);
                 cursor: pointer;
             }
@@ -167,24 +206,24 @@
                 scrollbar-width: thin;
                 padding: 0 5px;
             }
-            .items-header {
+            .items-header, .spells-header, .props-header {
                 border-bottom: 1px solid var(--color-border-dark-5);
 
-                .item-name {
+                .item-name, .spell-name, .prop-name {
                     padding-left: 5px;
                     text-align: left;
                     border-bottom: none;
                 }
             }
-            .item-roll {
+            .item-roll, .spell-roll, .prop-roll {
                 cursor: pointer;
             }
-            .item-name {
+            .item-name, .spell-name, .prop-roll {
                 margin: 0;
                 overflow: hidden;
                 align-items: center;
 
-                .item-image {
+                .item-image, .spell-image, .prop-image {
                     flex: 0 0 30px;
                     height: 30px;
                     width: 30px;
@@ -193,7 +232,7 @@
                     border: none;
                 }
             }
-            .item-controls {
+            .item-controls, .spell-controls, .prop-controls {
                 flex: 0 0 68px;
                 align-items: center;
             }

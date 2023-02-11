@@ -45,5 +45,19 @@
     "DW.WildDudConsequence": "1-2: The spell peters out and doesn’t do anything.",
     "DW.WildMinorFailConsequence": "3-4: The spell works, but with a negative side effect. Add 1 to Wild.",
     "DW.WildCriticalFailConsequence": "5-6: The spell fails dramatically. Describe the outcome and add 1 to Wild",
-    "DW.EndGame": "You’re caught! You not only fail the test, but also are arrested for Wild Magic Crimes."
+    "DW.EndGame": "You’re caught! You not only fail the test, but also are arrested for Wild Magic Crimes.",
+    "DW.ActorName": "Name",
+    "DW.ClassDescription": "Class",
+    "DW.FamiliarsDescription": "",
+    "DW.AlchemistDescription": "",
+    "DW.BardDescription": "",
+    "DW.ChosenOneDescription": "",
+    "DW.CollectorDescription": "",
+    "DW.DruidDescription": "",
+    "DW.ElementalBloodDescription": "",
+    "DW.MagicianDescription": "",
+    "DW.MuscleMagicDescription": "",
+    "DW.VampireDescription": "",
+    "DW.PropsTitle": "Props",
+    "DW.SpellsTitle": "Spells"
 }

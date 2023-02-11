@@ -12,7 +12,8 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
             template: "systems/definitely-wizards/templates/actor-sheet.html",
             width: 750,
             height: 625,
-            scrollY: [ "dw-item-list" ],
+            scrollY: [ "dw-item-list", "dw-spell-list", "dw-prop-list" ],
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }],
             dragDrop: [{ dropSelector: null, dragSelector: '[draggable]' }],
             resizable: false
         });
@@ -33,35 +34,9 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        html.find(".attribute-select").change(async (ev) => {
-            console.log(ev);
-            const select = ev.target;
-        });
+        html.find(".attribute-select").change(this._onAttributeChanged.bind(this));
 
-        html.find(".attribute-roll").click(async (ev) => {
-            const roller = $(ev.currentTarget);
-            const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
-            const parent = roller.parent("div");
-            const label = parent.find("label").get(0).innerText;
-            const select = parent.find("select").get(0);
-            const attributeName = select.name;
-            const option = select.options[roll.total - 1];
-
-            await this.actor.update({ [attributeName]: option.value });
-
-            if(attributeName === "data.player-class" && roll.total === 12) {
-                $(".customClass").show();
-            }
-
-            roll.toMessage({
-                user: game.user.id,  // avoid deprecation warning, backwards compatible
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`,
-                roll: roll,
-                sound: CONFIG.sounds.dice,
-                type: CONST.CHAT_MESSAGE_TYPES.ROLL
-            });
-        });
+        html.find(".attribute-roll").click(this._onAttributeRoll.bind(this));
 
         html.find(".stat-button-plus").click((ev) => {
             const isWizardRoll = this._isWizardRoll(ev.currentTarget);
@@ -169,5 +144,94 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
 
     _isWizardRoll(element) {
         return element.parentElement.id === "stat-wizard";
+    }
+
+    async _onAttributeRoll(event) {
+        const roller = $(event.currentTarget);
+        const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
+        const parent = roller.parent("div");
+        const label = parent.find("label").get(0).innerText;
+        const select = parent.find("select").get(0);
+        const attributeName = select.name;
+        const option = select.options[roll.total - 1];
+
+        await this.actor.update({ [attributeName]: option.value });
+
+        if(attributeName === "data.player-class" && roll.total === 12) {
+            $(".customClass").show();
+        }
+
+        roll.toMessage({
+            user: game.user.id,  // avoid deprecation warning, backwards compatible
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`,
+            roll: roll,
+            sound: CONFIG.sounds.dice,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL
+        });
+    }
+
+   async  _onAttributeChanged(event) {
+        console.log(event);
+        const select = event.target;
+
+        if(event.currentTarget.name === "system.player-class") {
+            this._onClassChanged(event);
+        }
+    }
+
+    async _onClassChanged(event) {
+        console.log("Class Changed")
+        console.log(event.target.value);
+        let classDesc = this.actor.system.playerClasses[event.target.value].description;
+        console.log(this.actor.system.playerClasses[event.target.value]);
+        console.log(classDesc);
+
+        this.actor.update({ "system.class-description": game.i18n.localize(classDesc)});
+    }
+
+    async rendering(event) {
+        const root = event.element[0];
+        const wizardStatElement = root.querySelector("#stat-wizard .stat-value");
+        const wildStatElement = root.querySelector("#stat-wild .stat-value");
+        const classElement = root.querySelector(".attribute select[name='system.player-class']");
+        const prop1Element = root.querySelector(".attribute select[name='system.prop-1']");
+        const prop2Element = root.querySelector(".attribute select[name='system.prop-2']");
+        let wizardVal = parseInt(wizardStatElement.value, 10);
+        let wildVal = parseInt(wildStatElement.value, 10);
+        let classValue = classElement.value;
+        let prop1Value = prop1Element.value;
+        let prop2Value = prop2Element.value;
+
+        if(classValue === "custom") {
+            $(root.querySelector(".customClass")).show();
+        } else {
+            $(root.querySelector(".customClass")).hide();
+        }
+
+        if(classValue === "none") {
+            $(root.querySelector("#class-description-panel")).hide();
+        } else {
+            $(root.querySelector("#class-description-panel")).show();
+        }
+
+        if (prop1Value === "custom") {
+            $(root.querySelector(".customProp1")).show();
+        } else {
+            $(root.querySelector(".customProp1")).hide();
+        }
+
+        if (prop2Value === "custom") {
+            $(root.querySelector(".customProp2")).show();
+        } else {
+            $(root.querySelector(".customProp2")).hide();
+        }
+
+        // Color a stat red if it's value is six.
+        if (wizardVal >= 6) {
+            wizardStatElement.classList.add("error-red");
+        } else if (wildVal >= 6) {
+            wildStatElement.classList.add("error-red");
+        }
     }
 }
