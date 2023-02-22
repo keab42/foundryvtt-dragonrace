@@ -52,7 +52,6 @@ Hooks.once("ready", async function () {
     }
 
     for (let [key, value] of Object.entries(rollTables)) {
-        console.log("MKTEST: key:" + key + " value: " + value);
         if (existingRollTables.indexOf(key) === -1) {
             const rollTable = await $.getJSON(value).then();
             rollTablesToAdd.push(rollTable);
@@ -65,6 +64,5 @@ Hooks.once("ready", async function () {
 Hooks.on("renderDefinitelyWizardsActorSheet", (ev) => {
    ev.rendering(ev);
 });
-
 
 Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));

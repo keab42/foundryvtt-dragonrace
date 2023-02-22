@@ -17,6 +17,11 @@ body {
     background: @lightColor;
 }
 
+::-webkit-scrollbar-thumb {
+    background-color: @darkColor;
+    border: 1px solid @lightTextColor;
+}
+
 .app {
     background: @medDarkColor;
 }
@@ -112,6 +117,8 @@ input[type="datetime-local"] {
 #sidebar-tabs > .item.active {
     border: 1px solid @mediumColor;
     box-shadow: 0 0 6px inset @medDarkColor;
+    color: @lightTextColor;
+    background-color: @darkColor;
 }
 
 // Sidebar border colors
@@ -135,4 +142,8 @@ input[type="datetime-local"] {
     height: 30px;
     width: 30px;
     align-self: center;
+}
+
+li.folder > .folder-header h3 {
+    color: @textColor;
 }

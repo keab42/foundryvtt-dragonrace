@@ -72,7 +72,7 @@
                         </div>
                         <div class="attribute">
                             <label>{{localize 'DW.Prop1'}}</label>
-                            <select name="system.prop-1" data-type="String">
+                            <select class="prop-select" name="system.prop-1" data-type="String">
                                 {{#select system.prop-1}}
                                     {{#each system.props-1 as |prop-1 key|}}
                                         <option value="{{key}}">{{prop-1.label}}</option>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="attribute">
                             <label>{{localize 'DW.Prop2'}}</label>
-                            <select name="system.prop-2" data-type="String">
+                            <select class="prop-select" name="system.prop-2" data-type="String">
                                 {{#select system.prop-2}}
                                     {{#each system.props-2 as |prop-2 key|}}
                                         <option value="{{key}}">{{prop-2.label}}</option>
@@ -128,8 +128,8 @@
                     </li>
                 </ol>
                 <ol class="dw-prop-list">
-                    {{#each props}}
-                    <li class="prop flexrow" data-prop-id="{{_id}}" draggable="true">
+                    {{#each actor.props}}
+                    <li class="prop flexrow" data-item-id="{{_id}}" draggable="true">
                         <div class="prop-name flexrow prop-roll">
                             <div class="prop-image" tabindex="0" role="button" aria-label="{{name}}" style="background-image: url('{{img}}')"></div>
                             <h4>{{name}}</h4>
@@ -153,12 +153,12 @@
                         <h3 class="item-name flexrow">{{localize 'DW.ItemName'}}</h3>
                         <div class="item-detail item-description">{{localize 'DW.ItemDescription'}}</div>
                         <div class="item-controls flexrow">
-                            <span class="add-item"><i class="fas fa-plus"></i> Add Item</span>
+                            <span class="add-item mk-test"><i class="fas fa-plus"></i> Add Item</span>
                         </div>
                     </li>
                 </ol>
                 <ol class="dw-item-list">
-                    {{#each items}}
+                    {{#each actor.miscItems}}
                     <li class="item flexrow" data-item-id="{{_id}}" draggable="true">
                         <div class="item-name flexrow item-roll">
                             <div class="item-image" tabindex="0" role="button" aria-label="{{name}}" style="background-image: url('{{img}}')"></div>
@@ -191,8 +191,8 @@
                     </li>
                 </ol>
                 <ol class="dw-spell-list">
-                    {{#each spells}}
-                    <li class="spell flexrow" data-spell-id="{{_id}}" draggable="true">
+                    {{#each actor.spells}}
+                    <li class="spell flexrow" data-item-id="{{_id}}" draggable="true">
                         <div class="spell-name flexrow spell-roll">
                             <div class="spell-image" tabindex="0" role="button" aria-label="{{name}}" style="background-image: url('{{img}}')"></div>
                             <h4>{{name}}</h4>

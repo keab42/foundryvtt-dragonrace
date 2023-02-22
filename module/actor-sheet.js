@@ -3,6 +3,9 @@
  * @extends {ActorSheet}
  */
 
+ const itemItemType = "MiscItem";
+ const propItemType = "Prop";
+ const spellItemType = "Spell";
 
 export class DefinitelyWizardsActorSheet extends ActorSheet {
     /** @override */
@@ -26,7 +29,9 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
         sheetData = baseData.data;  // needed to handle the new 0.8.x data depth
         sheetData.actor = this.actor.toObject(false);  // needed for actor.x handlebars
         sheetData.editable = this.options.editable;  // needed to fix TinyMCE due to missing editable parameter
-        console.debug("Actor Sheet Data:", sheetData)
+
+        this._prepareCharacterItems(sheetData);
+
         return sheetData;
     }
 
@@ -35,6 +40,8 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
         super.activateListeners(html);
 
         html.find(".attribute-select").change(this._onAttributeChanged.bind(this));
+
+        html.find(".prop-select").change(this._onPropChanged.bind(this));
 
         html.find(".attribute-roll").click(this._onAttributeRoll.bind(this));
 
@@ -88,62 +95,115 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
 
         });
 
-        html.find(".add-item").click(async (ev) => {
-            let item = await this.actor.createEmbeddedDocuments("Item", [{type: "item", name: game.i18n.localize('DW.NewItemName')}]);
+        html.find(".add-item, .add-prop, .add-spell").click(this._addItem.bind(this));
+
+        html.find(".item-edit, .prop-edit, .spell-edit").click(this._editItem.bind(this));
+
+        html.find(".item-delete, .prop-delete, .spell-delete").click(this._deleteItem.bind(this));
+
+        html.find(".item-roll, .prop-roll, .spell-roll").click(this._rollItem.bind(this));
+    }
+
+    _prepareCharacterItems(sheetData) {
+        const actorData = sheetData.actor;
+
+        const miscItems = [];
+        const props = [];
+        const spells = [];
+
+        for (let i of sheetData.items) {
+            let item = i.datal
+            i.img = i.img || DEFAULT_TOKEN;
+
+            if (i.type === itemItemType){
+                miscItems.push(i);
+            } else if (i.type === propItemType) {
+                props.push(i);
+            } else if (i.type === spellItemType) {
+                spells.push(i);
+            }
+        }
+
+        actorData.miscItems = miscItems;
+        actorData.props = props;
+        actorData.spells = spells;
+    }
+
+    async _addItem(event) {
+        console.log(event);
+        let classes = event.target.classList;
+        console.log(classes);
+        var itemType = "";
+        if (classes.contains("add-item")) {
+            itemType = itemItemType;
+        } else if (classes.contains("add-prop")) {
+            itemType = propItemType;
+        } else if (classes.contains("add-spell")) {
+            itemType = spellItemType;
+        }
+
+        if (itemType.length > 0) {
+            let item = await this.actor.createEmbeddedDocuments("Item", [{type: itemType, name: game.i18n.localize('DW.NewItemName')}]);
             await item[0].sheet.render(true);
-        });
+        }
+    }
 
-        html.find(".item-edit").click(async (ev) => {
-            const itemID = $(ev.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
-            const item = this.actor.items.get(itemID);
-            if (item) { item.sheet.render(true); }
-        });
+    async _editItem(event) {
+        const itemID = $(event.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
+        const item = this.actor.items.get(itemID);
+        if (item) { item.sheet.render(true); }
+    }
 
-        html.find(".item-delete").click(async (ev) => {
-            const itemID = $(ev.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
-            const item = this.actor.items.get(itemID);
+    async _deleteItem(event) {
+        const itemID = $(event.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
+        const item = this.actor.items.get(itemID);
 
-            new Dialog({
-                title: `${game.i18n.localize("DW.ConfirmItemDelete")}: ${item.name}`,
-                content: game.i18n.localize("DW.ConfirmItemDeleteText"),
-                buttons: {
-                    yes: {
-                        icon: "<i class='fas fa-check'></i>",
-                        label: game.i18n.localize("Yes"),
-                        callback: async (html) => {
-                            await item.delete();
-                        }
-                    },
-                    no: {
-                        icon: "<i class='fas fa-times'></i>",
-                        label: game.i18n.localize("No")
+        new Dialog({
+            title: `${game.i18n.localize("DW.ConfirmItemDelete")}: ${item.name}`,
+            content: game.i18n.localize("DW.ConfirmItemDeleteText"),
+            buttons: {
+                yes: {
+                    icon: "<i class='fas fa-check'></i>",
+                    label: game.i18n.localize("Yes"),
+                    callback: async (html) => {
+                        await item.delete();
                     }
                 },
-                default: "no"
-            }).render(true);
-        });
+                no: {
+                    icon: "<i class='fas fa-times'></i>",
+                    label: game.i18n.localize("No")
+                }
+            },
+            default: "no"
+        }).render(true);
+    }
 
-        html.find(".item-roll").click(async (ev) => {
-            const itemID = $(ev.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
-            const item = this.actor.items.get(itemID);
-            const messageData = {
-                speaker: ChatMessage.getSpeaker({actor: this.actor}),
-                content: `
-                    <div class="definitelywizards">
-                        <div class="chatItem flexrow">
-                            <div class="item-image" tabindex="0" aria-label="${item.name}" style="background-image: url('${item.img}')"></div>
-                            <h4>${item.name}</h4>
-                        </div>
+    async _rollItem(event) {
+        const itemID = $(event.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
+        const item = this.actor.items.get(itemID);
+        const messageData = {
+            speaker: ChatMessage.getSpeaker({actor: this.actor}),
+            content: `
+                <div class="definitelywizards">
+                    <div class="chatItem flexrow">
+                        <div class="item-image" tabindex="0" aria-label="${item.name}" style="background-image: url('${item.img}')"></div>
+                        <h4>${item.name}</h4>
                     </div>
-                    <div>${item.getRollData().description}</div>`
-            }
+                </div>
+                <div>${item.getRollData().description}</div>`
+        }
 
-            await ChatMessage.create(messageData);
-        })
+        await ChatMessage.create(messageData);
     }
 
     _isWizardRoll(element) {
         return element.parentElement.id === "stat-wizard";
+    }
+
+    async _onPropChanged(event) {
+
+            console.log(event);
+            console.log(this);
     }
 
     async _onAttributeRoll(event) {
@@ -230,7 +290,9 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
         // Color a stat red if it's value is six.
         if (wizardVal >= 6) {
             wizardStatElement.classList.add("error-red");
-        } else if (wildVal >= 6) {
+        }
+
+        if (wildVal >= 6) {
             wildStatElement.classList.add("error-red");
         }
     }
