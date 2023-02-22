@@ -18,12 +18,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: @darkColor;
+    background-color: @medDarkColor;
     border: 1px solid @lightTextColor;
 }
 
 .app {
-    background: @medDarkColor;
+    background: @brightColor;
 }
 
 body {
@@ -62,7 +62,7 @@ input[type="text"]:focus {
 }
 
 a:hover {
-    text-shadow: 0 0 8px @medDarkColor;
+    text-shadow: 0 0 8px @brightColor;
 }
 
 select,
@@ -75,7 +75,7 @@ form button {
 }
 
 button:hover {
-    box-shadow: 0 0 10px @medDarkColor;
+    box-shadow: 0 0 10px @brightColor;
 }
 
 #chat-log .message,
@@ -106,19 +106,18 @@ input[type="datetime-local"] {
 
 // Tab styling
 .tabs .item.active {
-    text-shadow: 0 0 10px @medDarkColor;
+    text-shadow: 0 0 10px @brightColor;
 }
 
 #sidebar-tabs {
-    box-shadow: 0 0 10px @medDarkColor;
-    border-bottom: 1px solid @mediumColor;
+    box-shadow: 0 0 10px @brightColor;
+    border-bottom: 1px solid @darkColor;
 }
 
 #sidebar-tabs > .item.active {
-    border: 1px solid @mediumColor;
+    border: 1px solid @darkColor;
     box-shadow: 0 0 6px inset @medDarkColor;
     color: @lightTextColor;
-    background-color: @darkColor;
 }
 
 // Sidebar border colors

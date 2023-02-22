@@ -15,7 +15,7 @@ body {
   background: #fdf2c3;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #19160D;
+  background-color: #4d3b00;
   border: 1px solid #ffffff;
 }
 .app {
@@ -48,7 +48,7 @@ select:focus,
 textarea:focus,
 input[type="text"]:focus {
   outline: 1px solid #19160D;
-  box-shadow: 0 0 5px #ffc80d;
+  box-shadow: 0 0 5px #4d3b00;
 }
 a:hover {
   text-shadow: 0 0 8px #ffc80d;
@@ -89,13 +89,12 @@ input[type="datetime-local"] {
 }
 #sidebar-tabs {
   box-shadow: 0 0 10px #ffc80d;
-  border-bottom: 1px solid #E2E0CF;
+  border-bottom: 1px solid #19160D;
 }
 #sidebar-tabs > .item.active {
-  border: 1px solid #E2E0CF;
-  box-shadow: 0 0 6px inset #ffc80d;
+  border: 1px solid #19160D;
+  box-shadow: 0 0 6px inset #4d3b00;
   color: #ffffff;
-  background-color: #19160D;
 }
 .sidebar-tab .directory-header,
 #combat #combat-round {
