@@ -1,7 +1,7 @@
 {
   "name": "Judge",
   "sort": 100001,
-  "img": "icons/svg/d20-grey.svg",
+  "img": "icons/svg/d20-black.svg",
   "description": "Determine how the test is judged",
   "results": [
     {

@@ -1,7 +1,7 @@
 {
   "name": "RoomType",
   "sort": 100002,
-  "img": "icons/svg/d20-grey.svg",
+  "img": "icons/svg/d20-black.svg",
   "description": "Roll for all chambers.",
   "results": [
     {

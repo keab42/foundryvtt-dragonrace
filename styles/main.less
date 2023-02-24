@@ -187,10 +187,16 @@
 
         #items-panel, #props-panel, #spells-panel {
 
-            .dw-item-list, .dw-spell-list, .dw-prop-list {
+            .dw-item-list, .dw-prop-list {
                 overflow-y: auto;
                 height: 175px;
             }
+
+            .dw-spell-list {
+                overflow-y: auto;
+                height: 300px;
+            }
+
             .add-item, .add-spell, .add-prop {
                 font-size: 0.7rem;
                 align-self: center;
@@ -228,10 +234,14 @@
                     flex: 0 0 30px;
                     height: 30px;
                     width: 30px;
+                    margin: 5px;
                     background-size: cover;
                     background-position: 50% 0;
                     border: none;
                 }
+            }
+            .item-description, .spell-description, .prop-description {
+                margin-right: 5px;
             }
             .item-controls, .spell-controls, .prop-controls {
                 flex: 0 0 68px;

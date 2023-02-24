@@ -116,6 +116,9 @@ input[type="datetime-local"] {
 li.folder > .folder-header h3 {
   color: #121212;
 }
+div.card-buttons {
+  margin-top: 5px;
+}
 @font-face {
   font-family: Title;
   src: url('/systems/definitely-wizards/resources/fonts/Chelsea_Market/ChelseaMarket-Regular.ttf');
@@ -309,14 +312,17 @@ li.folder > .folder-header h3 {
 .definitelywizards .sheet-panel #items-panel .dw-item-list,
 .definitelywizards .sheet-panel #props-panel .dw-item-list,
 .definitelywizards .sheet-panel #spells-panel .dw-item-list,
-.definitelywizards .sheet-panel #items-panel .dw-spell-list,
-.definitelywizards .sheet-panel #props-panel .dw-spell-list,
-.definitelywizards .sheet-panel #spells-panel .dw-spell-list,
 .definitelywizards .sheet-panel #items-panel .dw-prop-list,
 .definitelywizards .sheet-panel #props-panel .dw-prop-list,
 .definitelywizards .sheet-panel #spells-panel .dw-prop-list {
   overflow-y: auto;
   height: 175px;
+}
+.definitelywizards .sheet-panel #items-panel .dw-spell-list,
+.definitelywizards .sheet-panel #props-panel .dw-spell-list,
+.definitelywizards .sheet-panel #spells-panel .dw-spell-list {
+  overflow-y: auto;
+  height: 300px;
 }
 .definitelywizards .sheet-panel #items-panel .add-item,
 .definitelywizards .sheet-panel #props-panel .add-item,
@@ -447,9 +453,21 @@ li.folder > .folder-header h3 {
   flex: 0 0 30px;
   height: 30px;
   width: 30px;
+  margin: 5px;
   background-size: cover;
   background-position: 50% 0;
   border: none;
+}
+.definitelywizards .sheet-panel #items-panel .item-description,
+.definitelywizards .sheet-panel #props-panel .item-description,
+.definitelywizards .sheet-panel #spells-panel .item-description,
+.definitelywizards .sheet-panel #items-panel .spell-description,
+.definitelywizards .sheet-panel #props-panel .spell-description,
+.definitelywizards .sheet-panel #spells-panel .spell-description,
+.definitelywizards .sheet-panel #items-panel .prop-description,
+.definitelywizards .sheet-panel #props-panel .prop-description,
+.definitelywizards .sheet-panel #spells-panel .prop-description {
+  margin-right: 5px;
 }
 .definitelywizards .sheet-panel #items-panel .item-controls,
 .definitelywizards .sheet-panel #props-panel .item-controls,
