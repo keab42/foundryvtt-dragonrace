@@ -1,7 +1,7 @@
 {
   "name": "MainObstacle",
   "sort": 100003,
-  "img": "icons/svg/d20-grey.svg",
+  "img": "icons/svg/d20-black.svg",
   "description": "Roll for all chambers",
   "results": [
     {

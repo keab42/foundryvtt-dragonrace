@@ -22,7 +22,7 @@ export async function rollConsequences(actorID, isWizardRoll) {
 
         actor.updateStat(false, 1);
 
-    } else if(roll.total <= 5) {
+    } else if(roll.total <= 6) {
         if (isWizardRoll) {
             resultMessage = game.i18n.localize("DW.WizardCriticalFailConsequence");
         } else {

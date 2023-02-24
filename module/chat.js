@@ -6,7 +6,6 @@ export function addChatListeners(html) {
 
 function rollConsequences(event) {
     const card = event.currentTarget.closest(".skill-roll");
-    console.log(card.dataset);
     const actorID = card.dataset.ownerId;
     const isWizardRoll = card.dataset.iswizardroll;
 

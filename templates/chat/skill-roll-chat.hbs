@@ -1,16 +1,18 @@
 <div class="chat-card skill-roll" data-owner-id="{{owner}}" data-isWizardRoll="{{isWizardRoll}}" data-isSuccess="{{isSuccess}}">
     <div class="card-content">
         <p>
-            {{#if isWizardRoll}}
-                {{localize "DW.RollForWizard"}}:
-            {{else}}
-                {{localize "DW.RollForWild"}}:
-            {{/if}}
-            {{#if isSuccess}}
-                {{localize "DW.Success"}}
-            {{else}}
-                {{localize "DW.Failed"}}
-            {{/if}}
+            <strong>
+                {{#if isWizardRoll}}
+                    {{localize "DW.RollForWizard"}}:
+                {{else}}
+                    {{localize "DW.RollForWild"}}:
+                {{/if}}
+                {{#if isSuccess}}
+                    {{localize "DW.Success"}}
+                {{else}}
+                    {{localize "DW.Failed"}}
+                {{/if}}
+            </strong>
         </p>
 
         {{#if isSuccess}}

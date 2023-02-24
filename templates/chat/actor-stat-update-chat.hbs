@@ -1,0 +1,16 @@
+<div class="chat-card actor-stat-update" data-owner-id="{{owner}}" data-isWizardRoll="{{isWizardRoll}}" data-oldVal="{{oldValue}}" data-newVal="{{newValue}}">
+    <div class="card-content">
+        <h2>
+            {{#if isWizardRoll}}
+                {{localize "DW.Wizard"}}:
+            {{else}}
+                {{localize "DW.Wild"}}:
+            {{/if}}
+        </h2>
+
+        <h3>
+            {{oldValue}} &rarr; {{newValue}}
+        </h3>
+    </div>
+
+</div>
