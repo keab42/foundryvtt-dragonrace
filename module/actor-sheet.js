@@ -70,8 +70,6 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
             const isSuccess = roll.total <= currentValue;
             const rollSuccess = isSuccess ? game.i18n.localize("DW.Success") : game.i18n.localize("DW.Failed");
 
-            console.log(roll.toJSON());
-
             let templateData = {
                 isWizardRoll: isWizardRoll,
                 isSuccess: isSuccess,
@@ -130,10 +128,9 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
     }
 
     async _addItem(event) {
-        console.log(event);
         let classes = event.target.classList;
-        console.log(classes);
         var itemType = "";
+
         if (classes.contains("add-item")) {
             itemType = itemItemType;
         } else if (classes.contains("add-prop")) {
@@ -201,9 +198,7 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
     }
 
     async _onPropChanged(event) {
-
-            console.log(event);
-            console.log(this);
+        // TODO: - Decide if you want to auto add props or not
     }
 
     async _onAttributeRoll(event) {
@@ -221,6 +216,8 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
             $(".customClass").show();
         }
 
+        await this.updateClass(option.value);
+
         roll.toMessage({
             user: game.user.id,  // avoid deprecation warning, backwards compatible
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -232,7 +229,6 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
     }
 
    async  _onAttributeChanged(event) {
-        console.log(event);
         const select = event.target;
 
         if(event.currentTarget.name === "system.player-class") {
@@ -241,11 +237,11 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
     }
 
     async _onClassChanged(event) {
-        console.log("Class Changed")
-        console.log(event.target.value);
-        let classDesc = this.actor.system.playerClasses[event.target.value].description;
-        console.log(this.actor.system.playerClasses[event.target.value]);
-        console.log(classDesc);
+        await this.updateClass(event.target.value);
+    }
+
+    async updateClass(className) {
+        let classDesc = this.actor.system.playerClasses[className].description;
 
         this.actor.update({ "system.class-description": game.i18n.localize(classDesc)});
     }

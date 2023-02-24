@@ -19,7 +19,20 @@
     ],
     "esmodules": [ "module/main.js" ],
     "styles": [ "styles/main.css" ],
-    "packs": [],
+    "packs": [
+        {
+            "name": "spells",
+            "label": "Spells",
+            "path": "packs/definitely-wizards-spells.db",
+            "entity": "Item"
+        },
+        {
+            "name": "props",
+            "label": "Props",
+            "path": "packs/definitely-wizards-props.db",
+            "entity": "Item"
+        }
+    ],
     "languages": [
         {
             "lang": "en",

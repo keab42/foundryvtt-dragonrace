@@ -3,7 +3,7 @@
         "types": [ "character" ],
         "character": {
             "biography": "<p>Everyone knows the proper way to gain arcane abilities is through discipline and years of study. Magic is temperamental, and it's too dangerous to let anybody who just happens to have \"inner power\" cast spells. Wizards who have worked studiously and been tested on their capabilities are the only ones we can trust with that power.</p> <p>Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam.</p><p>The exam is a series of trials designed to test your magical competence, skill, and control. Your party must complete these challenges while keeping up the illusion that you are wise and dignified wizards, not a ragtag bunch whose magic is from anything but book learning.</p>",
-            "class-description": "<p>test</p>",
+            "class-description": "<p></p>",
             "stats": {
                 "wizard": 3,
                 "wild": 3

@@ -17,8 +17,6 @@ export class DefinitelyWizardsActor extends Actor {
 
 
     async updateStat(isWizard, offset) {
-        console.log("MKTEST - Update Stat")
-        console.log(isWizard);
 
         let wizardStat = this.system.stats.wizard;
         let wildStat = this.system.stats.wild;
@@ -96,9 +94,6 @@ export class DefinitelyWizardsActor extends Actor {
 
     async _postUpdateToChat(isWizard, oldValue, newValue) {
         const template = "systems/definitely-wizards/templates/chat/actor-stat-update-chat.hbs";
-
-        console.log(oldValue);
-        console.log(newValue);
 
         let templateData = {
             isWizardRoll: isWizard,
