@@ -1,47 +1,59 @@
 {
-    "id": "definitely-wizards",
-    "title": "Definitely Wizards",
-    "description": "A TTRPG about not being a wizard",
-    "version": 1.2,
-    "templateVersion": 2,
-    "compatibility": {
-        "minimum": "10",
-        "verified": "10",
-        "maximum": "10"
+  "id": "definitely-wizards",
+  "title": "Definitely Wizards",
+  "description": "A TTRPG about not being a wizard",
+  "version": "1.2.1",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "JHaywood",
+      "flags": {}
     },
-    "authors": [
-        {
-            "name": "JHaywood"
-        },
-        {
-            "name": "May Keable"
-        }
-    ],
-    "esmodules": [ "module/main.js" ],
-    "styles": [ "styles/main.css" ],
-    "packs": [
-        {
-            "name": "spells",
-            "label": "Spells",
-            "path": "packs/definitely-wizards-spells.db",
-            "entity": "Item"
-        },
-        {
-            "name": "props",
-            "label": "Props",
-            "path": "packs/definitely-wizards-props.db",
-            "entity": "Item"
-        }
-    ],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json"
-        }
-    ],
-    "url": "https://github.com/keab42/foundryvtt-definitelywizards",
-    "manifest": "https://raw.githubusercontent.com/keab42/foundryvtt-definitelywizards/master/system.json",
-    "download": "https://github.com/keab42/foundryvtt-definitelywizards/releases/download/v1.2/definitely-wizards.zip",
-    "license": "LICENSE.txt"
+    {
+      "name": "May Keable",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "module/main.js"
+  ],
+  "styles": [
+    "styles/main.css"
+  ],
+  "packs": [
+    {
+      "name": "spells",
+      "label": "Spells",
+      "path": "packs/definitely-wizards-spells.db",
+      "type": "Item",
+      "private": false,
+      "system": "definitely-wizards",
+      "flags": {}
+    },
+    {
+      "name": "props",
+      "label": "Props",
+      "path": "packs/definitely-wizards-props.db",
+      "type": "Item",
+      "private": false,
+      "system": "definitely-wizards",
+      "flags": {}
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "url": "https://github.com/keab42/foundryvtt-definitelywizards",
+  "manifest": "https://raw.githubusercontent.com/keab42/foundryvtt-definitelywizards/master/system.json",
+  "download": "https://github.com/keab42/foundryvtt-definitelywizards/releases/download/v1.2.1/definitely-wizards.zip",
+  "license": "LICENSE.txt"
 }

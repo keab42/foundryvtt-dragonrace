@@ -12,13 +12,13 @@
     }
     .sheet-panel {
         display: grid;
-        grid-template-rows: max-content max-content 1fr;
-        gap: @margin;
+        grid-template-rows: max-content max-content 1fr;;
 
         nav.sheet-tabs {
 
             border-top: none;
             border-bottom: 1px solid @textColor;
+            margin: 14px 0px 0px 0px;
 
             a.active {
                 background-color: @brightColor;
@@ -33,6 +33,11 @@
 
         }
 
+        .sheet-body {
+            border: 1px solid @textColor;
+            padding: 5px;
+        }
+
         #stat-panel {
             gap: @margin;
             height: auto;
@@ -45,6 +50,7 @@
             .profile-img {
                 grid-area: portrait;
                 height: 100px;
+                background-color: fade(@darkColor, 10%);
             }
             .char-name {
                 grid-area: name;
@@ -238,6 +244,10 @@
                     background-size: cover;
                     background-position: 50% 0;
                     border: none;
+                }
+
+                .item-image {
+                    background-color: fade(@darkColor, 10%);
                 }
             }
             .item-description, .spell-description, .prop-description {

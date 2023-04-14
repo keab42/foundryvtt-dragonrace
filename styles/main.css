@@ -78,8 +78,12 @@ input[type="datetime-local"] {
   margin-top: 10px;
 }
 .fa-cog:before,
-.fa-plus:before {
-  color: #fdf2c3;
+.fa-plus:before,
+.fa-caret-left:before,
+.fa-caret-right:before,
+.fa-angle-down:before,
+.fa-angle-up:before {
+  color: #121212;
 }
 .window-content .fa-plus:before {
   color: #121212;
@@ -98,10 +102,10 @@ input[type="datetime-local"] {
 }
 .sidebar-tab .directory-header,
 #combat #combat-round {
-  border-bottom: 2px solid #E2E0CF;
+  border-bottom: 2px solid #19160D;
 }
 #combat #combat-controls {
-  border-top: 2px solid #E2E0CF;
+  border-top: 2px solid #19160D;
 }
 #settings h2 {
   border-top: 1px solid #19160D;
@@ -112,12 +116,55 @@ input[type="datetime-local"] {
   height: 30px;
   width: 30px;
   align-self: center;
+  margin: 5px;
 }
 li.folder > .folder-header h3 {
   color: #121212;
 }
 div.card-buttons {
   margin-top: 5px;
+}
+.combat-sidebar .combat-tracker-header nav.encounters h4,
+.combat-sidebar .combat-tracker-header a.combat-button {
+  color: #121212;
+}
+#hotbar .macro:hover {
+  box-shadow: 0 0 10px #ffc80d inset;
+}
+#hotbar .macro.active:hover {
+  border: 1px solid #4d3b00;
+}
+#navigation #scene-list .scene.gm {
+  color: #ffffff;
+  border: 1px solid #4d3b00;
+}
+#navigation #scene-list .scene.view,
+#navigation #scene-list .scene.context {
+  color: #ffffff;
+  border: 1px solid #ffc80d;
+  border-bottom: 2px solid #ffc80d;
+  box-shadow: 0 0 10px #fdf2c3;
+}
+#navigation #nav-toggle:hover {
+  text-shadow: 0 0 10px #ffc80d;
+}
+#navigation #scene-list .scene {
+  color: #ffffff;
+}
+#controls ol.control-tools > li.active,
+#controls ol.control-tools > li:hover {
+  color: #ffffff;
+  border: 1px solid #ffc80d;
+  border-bottom: 2px solid #ffc80d;
+  box-shadow: 0 0 10px #19160D;
+}
+.camera-view .player-name {
+  color: #121212;
+  border: 2px solid #ffc80d;
+}
+#players ol .player-name.self {
+  color: #121212;
+  font-weight: bold;
 }
 @font-face {
   font-family: Title;
@@ -157,11 +204,11 @@ div.card-buttons {
 .definitelywizards .sheet-panel {
   display: grid;
   grid-template-rows: max-content max-content 1fr;
-  gap: 10px;
 }
 .definitelywizards .sheet-panel nav.sheet-tabs {
   border-top: none;
   border-bottom: 1px solid #121212;
+  margin: 14px 0px 0px 0px;
 }
 .definitelywizards .sheet-panel nav.sheet-tabs a.active {
   background-color: #ffc80d;
@@ -171,6 +218,10 @@ div.card-buttons {
   border-radius: 10px 10px 0px 0px;
   flex: 1;
   font-family: Title;
+}
+.definitelywizards .sheet-panel .sheet-body {
+  border: 1px solid #121212;
+  padding: 5px;
 }
 .definitelywizards .sheet-panel #stat-panel {
   height: auto;
@@ -183,6 +234,7 @@ div.card-buttons {
 .definitelywizards .sheet-panel #stat-panel .profile-img {
   grid-area: portrait;
   height: 100px;
+  background-color: rgba(25, 22, 13, 0.1);
 }
 .definitelywizards .sheet-panel #stat-panel .char-name {
   grid-area: name;
@@ -457,6 +509,17 @@ div.card-buttons {
   background-size: cover;
   background-position: 50% 0;
   border: none;
+}
+.definitelywizards .sheet-panel #items-panel .item-name .item-image,
+.definitelywizards .sheet-panel #props-panel .item-name .item-image,
+.definitelywizards .sheet-panel #spells-panel .item-name .item-image,
+.definitelywizards .sheet-panel #items-panel .spell-name .item-image,
+.definitelywizards .sheet-panel #props-panel .spell-name .item-image,
+.definitelywizards .sheet-panel #spells-panel .spell-name .item-image,
+.definitelywizards .sheet-panel #items-panel .prop-roll .item-image,
+.definitelywizards .sheet-panel #props-panel .prop-roll .item-image,
+.definitelywizards .sheet-panel #spells-panel .prop-roll .item-image {
+  background-color: rgba(25, 22, 13, 0.1);
 }
 .definitelywizards .sheet-panel #items-panel .item-description,
 .definitelywizards .sheet-panel #props-panel .item-description,
