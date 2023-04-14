@@ -1,2 +1,15 @@
 v1.0: 3/2/2023
 - First release.
+
+v1.1: 3/2/2023
+- Some bugfixes after deploying to Forge instance.
+
+v1.2: 24/2/2023
+- Better Actor sheet layout
+- Refactoring code
+- Adding some extra functionality
+- Better styles
+- Compendium Packs with all Spells and Props
+
+v1.2.1 14/4/2023
+- Small UI tweaks

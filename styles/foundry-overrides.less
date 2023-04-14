@@ -95,8 +95,12 @@ input[type="datetime-local"] {
 
 // Icons outside windows
 .fa-cog:before,
-.fa-plus:before {
-    color: @lightColor;
+.fa-plus:before,
+.fa-caret-left:before,
+.fa-caret-right:before,
+.fa-angle-down:before,
+.fa-angle-up:before {
+    color: @textColor;
 }
 
 // Icons inside windows
@@ -123,11 +127,11 @@ input[type="datetime-local"] {
 // Sidebar border colors
 .sidebar-tab .directory-header,
 #combat #combat-round {
-    border-bottom: 2px solid @mediumColor;
+    border-bottom: 2px solid @darkColor;
 }
 
 #combat #combat-controls {
-    border-top: 2px solid @mediumColor;
+    border-top: 2px solid @darkColor;
 }
 
 #settings h2 {
@@ -141,6 +145,7 @@ input[type="datetime-local"] {
     height: 30px;
     width: 30px;
     align-self: center;
+    margin: 5px;
 }
 
 li.folder > .folder-header h3 {
@@ -149,4 +154,56 @@ li.folder > .folder-header h3 {
 
 div.card-buttons {
     margin-top: 5px;
+}
+
+.combat-sidebar .combat-tracker-header nav.encounters h4,
+.combat-sidebar .combat-tracker-header a.combat-button {
+    color: @textColor;
+}
+
+#hotbar .macro:hover {
+    box-shadow: 0 0 10px @brightColor inset;
+}
+
+#hotbar .macro.active:hover {
+  border: 1px solid @medDarkColor;
+}
+
+#navigation #scene-list .scene.gm {
+    color: @lightTextColor;
+    border: 1px solid @medDarkColor;
+}
+
+#navigation #scene-list .scene.view,
+#navigation #scene-list .scene.context {
+  color: @lightTextColor;
+  border: 1px solid @brightColor;
+  border-bottom: 2px solid @brightColor;
+  box-shadow: 0 0 10px @lightColor;
+}
+
+#navigation #nav-toggle:hover {
+  text-shadow: 0 0 10px @brightColor;
+}
+
+#navigation #scene-list .scene {
+    color: @lightTextColor;
+}
+
+#controls ol.control-tools > li.active,
+#controls ol.control-tools > li:hover {
+  color: @lightTextColor;
+  border: 1px solid @brightColor;
+  border-bottom: 2px solid @brightColor;
+  box-shadow: 0 0 10px @darkColor;
+}
+
+.camera-view .player-name {
+    color: @textColor;
+    border: 2px solid @brightColor;
+}
+
+#players ol .player-name.self {
+    color: @textColor;
+    font-weight: bold;
 }
