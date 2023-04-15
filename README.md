@@ -5,7 +5,7 @@ Everyone knows the proper way to gain arcane abilities is through discipline and
 Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam.
 
 ## Description
-Definitely Wizards is a rules-light TTRPG about pretending to be a wizard by Elliot HT available to purchase [here](https://elliothtart.itch.io/definitely-wizards). The system includes a character sheet for players and roll tables for the GM.
+Definitely Wizards is a rules-light TTRPG about pretending to be a wizard by Elliot HT available to purchase at [https://elliothtart.itch.io/definitely-wizards](https://elliothtart.itch.io/definitely-wizards). The system includes a character sheet for players and roll tables for the GM.
 
 ### For Players
 Open the actor the GM created for you. On the character sheet, you'll find options for each attribute which you can choose yourself or roll for. Click the die icon next to each to let the dice decide for you.
