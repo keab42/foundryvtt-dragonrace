@@ -208,15 +208,17 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
         const label = parent.find("label").get(0).innerText;
         const select = parent.find("select").get(0);
         const attributeName = select.name;
-        const option = select.options[roll.total - 1];
-
+        const option = select.options[roll.total];
+        
         await this.actor.update({ [attributeName]: option.value });
 
-        if(attributeName === "data.player-class" && roll.total === 12) {
-            $(".customClass").show();
-        }
+        if(attributeName === "system.player-class") {
+            if(roll.total === 11) {
+                $(".customClass").show();
+            }
 
-        await this.updateClass(option.value);
+            await this.updateClass(option.value);
+        }
 
         roll.toMessage({
             user: game.user.id,  // avoid deprecation warning, backwards compatible

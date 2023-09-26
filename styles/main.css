@@ -82,7 +82,13 @@ input[type="datetime-local"] {
 .fa-caret-left:before,
 .fa-caret-right:before,
 .fa-angle-down:before,
-.fa-angle-up:before {
+.fa-angle-up:before,
+.fa-search:before,
+.fa-arrow-down-a-z:before,
+.fa-arrow-up-a-z:before,
+.fa-arrow-down-short-wide:before,
+.fa-arrow-up-short-wide:before,
+.fa-folder-tree:before {
   color: #121212;
 }
 .window-content .fa-plus:before {
@@ -110,6 +116,12 @@ input[type="datetime-local"] {
 #settings h2 {
   border-top: 1px solid #19160D;
   border-bottom: 1px solid #19160D;
+}
+#settings hr {
+  border-color: #19160D;
+}
+.directory-item .document-name {
+  color: #121212;
 }
 .sidebar-tab .directory-list .directory-item img {
   flex: 0 0 30px;
@@ -165,6 +177,21 @@ div.card-buttons {
 #players ol .player-name.self {
   color: #121212;
   font-weight: bold;
+}
+.directory-item .compendium-name {
+  color: #ffffff;
+}
+.compendium-sidebar .directory-item.compendium:hover .compendium-name {
+  text-shadow: 0 0 8px #ffc80d;
+}
+.compendium-footer .source {
+  color: #ffffff;
+}
+.compendium-footer .source .fa-solid {
+  color: #ffffff;
+}
+li.folder > .folder-header .create-button .fa-plus {
+  background: none;
 }
 @font-face {
   font-family: Title;

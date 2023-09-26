@@ -99,7 +99,13 @@ input[type="datetime-local"] {
 .fa-caret-left:before,
 .fa-caret-right:before,
 .fa-angle-down:before,
-.fa-angle-up:before {
+.fa-angle-up:before,
+.fa-search:before,
+.fa-arrow-down-a-z:before,
+.fa-arrow-up-a-z:before,
+.fa-arrow-down-short-wide:before,
+.fa-arrow-up-short-wide:before,
+.fa-folder-tree:before {
     color: @textColor;
 }
 
@@ -137,6 +143,14 @@ input[type="datetime-local"] {
 #settings h2 {
     border-top: 1px solid @darkColor;
     border-bottom: 1px solid @darkColor;
+}
+
+#settings hr {
+    border-color: @darkColor;
+}
+
+.directory-item .document-name {
+    color: @textColor;
 }
 
 // D20 icon next to roll table entry
@@ -206,4 +220,25 @@ div.card-buttons {
 #players ol .player-name.self {
     color: @textColor;
     font-weight: bold;
+}
+
+.directory-item .compendium-name {
+    color: @lightTextColor;
+}
+
+.compendium-sidebar .directory-item.compendium:hover .compendium-name {
+    text-shadow: 0 0 8px @brightColor;
+}
+
+.compendium-footer {
+    .source {
+        .fa-solid {
+            color: @lightTextColor;
+        }
+        color: @lightTextColor;
+    }
+}
+
+li.folder > .folder-header .create-button .fa-plus {
+    background: none;
 }
