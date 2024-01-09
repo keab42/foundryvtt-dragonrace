@@ -1,24 +1,24 @@
-import { DefinitelyWizardsActor } from "./actor.js";
-import { DefinitelyWizardsActorSheet } from "./actor-sheet.js";
-import { DefinitelyWizardsItemSheet } from "./item-sheet.js";
+import { DragonRaceActor } from "./actor.js";
+import { DragonRaceActorSheet } from "./actor-sheet.js";
+import { DragonRaceItemSheet } from "./item-sheet.js";
 import * as Chat from "./chat.js"
 
 Hooks.once("init", async function () {
-    console.log(`DefinitelyWizards: Initializing`);
+    console.log(`DragonRace: Initializing`);
 
     // Define custom Entity classes
     if (isNewerVersion(game.data.version, "0.8.0")) {
-        CONFIG.Actor.documentClass = DefinitelyWizardsActor;
+        CONFIG.Actor.documentClass = DragonRaceActor;
     } else {
-        CONFIG.Actor.entityClass = DefinitelyWizardsActor;
+        CONFIG.Actor.entityClass = DragonRaceActor;
     }
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("definitelywizards", DefinitelyWizardsActorSheet, { label: "Definitely Wizards Character Sheet (Default)", makeDefault: true });
+    Actors.registerSheet("DragonRace", DragonRaceActorSheet, { label: "Definitely Wizards Character Sheet (Default)", makeDefault: true });
 
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("definitelywizards", DefinitelyWizardsItemSheet, { label: "Definitely Wizards Item Sheet (Default)", makeDefault: true });
+    Items.registerSheet("DragonRace", DragonRaceItemSheet, { label: "Definitely Wizards Item Sheet (Default)", makeDefault: true });
 
     Handlebars.registerHelper("removeProperty", function (obj, property) {
         delete obj[property];
@@ -33,12 +33,7 @@ Hooks.once("ready", async function () {
     const existingRollTables = [];
     const rollTablesToAdd = [];
     const rollTables = {
-        Judge: "/systems/definitely-wizards/resources/roll-tables/fvtt-RollTable-judge.json",
-        RoomType: "/systems/definitely-wizards/resources/roll-tables/fvtt-RollTable-room-type.json",
-        MainObstacle: "/systems/definitely-wizards/resources/roll-tables/fvtt-RollTable-main-obstacle.json",
-        AddedChallenge: "/systems/definitely-wizards/resources/roll-tables/fvtt-RollTable-added-challenge.json",
-        Surprise: "/systems/definitely-wizards/resources/roll-tables/fvtt-RollTable-surprise.json",
-        FinalTest: "/systems/definitely-wizards/resources/roll-tables/fvtt-RollTable-final-test.json"
+        //Equipment: "/systems/dragon-race/resources/roll-tables/fvtt-RollTable-equipment.json"
     };
 
     if (isNewerVersion(game.data.version, "0.8.0")) {
@@ -61,7 +56,7 @@ Hooks.once("ready", async function () {
     RollTable.create(rollTablesToAdd);
 });
 
-Hooks.on("renderDefinitelyWizardsActorSheet", (ev) => {
+Hooks.on("renderDragonRaceActorSheet", (ev) => {
    ev.rendering(ev);
 });
 

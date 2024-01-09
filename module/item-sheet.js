@@ -3,12 +3,12 @@
  * @extends {ItemSheet}
  */
 
-export class DefinitelyWizardsItemSheet extends ItemSheet {
+export class DragonRaceItemSheet extends ItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["definitelywizards", "sheet", "item"],
-            template: "systems/definitely-wizards/templates/item-sheet.html",
+            classes: ["dragonrace", "sheet", "item"],
+            template: "systems/dragon-race/templates/item-sheet.html",
             width: 550,
             height: 400
         });

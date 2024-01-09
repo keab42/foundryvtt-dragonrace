@@ -1,8 +1,8 @@
 {
-  "id": "definitely-wizards",
-  "title": "Definitely Wizards",
-  "description": "A TTRPG about not being a wizard",
-  "version": "1.3.0",
+  "id": "dragon-race",
+  "title": "Rupert's Dragon Race",
+  "description": "You're Kobolds, trying to win a dragon race",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "11",
     "verified": "11",
@@ -26,23 +26,11 @@
   ],
   "packs": [
     {
-      "name": "spells",
-      "label": "Spells",
-      "path": "packs/definitely-wizards-spells",
+      "name": "equipment",
+      "label": "Equipment",
+      "path": "packs/dragon-race-equipment",
       "type": "Item",
-      "system": "definitely-wizards",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "props",
-      "label": "Props",
-      "path": "packs/definitely-wizards-props",
-      "type": "Item",
-      "system": "definitely-wizards",
+      "system": "dragon-race",
       "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER",
@@ -58,8 +46,8 @@
       "flags": {}
     }
   ],
-  "url": "https://github.com/keab42/foundryvtt-definitelywizards",
-  "manifest": "https://raw.githubusercontent.com/keab42/foundryvtt-definitelywizards/master/system.json",
-  "download": "https://github.com/keab42/foundryvtt-definitelywizards/releases/download/v1.3.0/definitely-wizards.zip",
+  "url": "https://github.com/keab42/foundryvtt-dragonrace",
+  "manifest": "https://raw.githubusercontent.com/keab42/foundryvtt-dragonrace/master/system.json",
+  "download": "https://github.com/keab42/foundryvtt-dragonrace/releases/download/v1.0.0/dragon-race.zip",
   "license": "LICENSE.txt"
 }

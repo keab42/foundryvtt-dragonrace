@@ -2,7 +2,7 @@
 @import "variables.less";
 @import "utility.less";
 
-.definitelywizards {
+.dragonrace {
 
     .window-content {
         color: @textColor;
@@ -43,8 +43,8 @@
             height: auto;
             display: grid;
             grid-template-columns: 100px 1fr 1fr;
-            grid-template-rows: 40px 1fr;
-            grid-template-areas: "portrait name name" "portrait wizard wild";
+            grid-template-rows: 40px 1fr 1fr;
+            grid-template-areas: "portrait name name" "portrait alacrity chutzpah" "portrait ferociousness scaliness";
             gap: @margin;
 
             .profile-img {
@@ -62,22 +62,30 @@
                     margin: 0;
                 }
             }
-            #stat-wizard,
-            #stat-wild {
-                grid-area: wizard;
+            #stat-alacrity,
+            #stat-chutzpah,
+            #stat-ferociousness,
+            #stat-scaliness {
+                grid-area: alacrity;
                 gap: 0;
                 margin-top: -10px;
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto 1fr;
-                grid-template-areas: "title title title ." "value die dice." "plus minus reset .";
+                grid-template-areas: "title title" "value die";
                 align-items: center;
             }
-            #stat-wizard {
-                grid-area: wizard;
+            #stat-alacrity {
+                grid-area: alacrity;
             }
-            #stat-wild {
-                grid-area: wild;
+            #stat-chutzpah {
+                grid-area: chutzpah;
+            }
+            #stat-ferociousness {
+                grid-area: ferociousness;
+            }
+            #stat-scaliness {
+                grid-area: scaliness;
             }
             .stat-title {
                 grid-area: title;
@@ -86,25 +94,9 @@
                 height: 40px;
                 grid-area: icon;
             }
-            .stat-button-plus {
-                height: 25px;
-                grid-area: plus;
-            }
-            .stat-button-minus {
-                height: 25px;
-                grid-area: minus;
-            }
-            .stat-button-reset {
-                height: 25px;
-                grid-area: reset;
-            }
             .stat-roll-single {
                 height: 35px;
                 grid-area: die;
-            }
-            .stat-roll-double {
-                height: 35px;
-                grid-area: dice;
             }
             .stat-value {
                 font-size: 45px;
@@ -118,96 +110,17 @@
             }
         }
 
-        #attributes-tab {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto 1fr;
-        }
+        #items-panel {
 
-        #attributes-panel {
-            margin-right: 0.5rem;
-
-            #attributes {
-                display: grid;
-                gap: @margin;
-                margin-top: @margin;
-
-                label {
-                    grid-area: attr-label;
-                }
-
-                select {
-                    grid-area: attr-select;
-                }
-
-                img {
-                    grid-area: attr-roller;
-                }
-
-                input {
-                    grid-area: attr-custom;
-                }
-            }
-            .attribute {
-                align-items: center;
-                display: grid;
-                gap: @margin;
-                grid-template-columns: 72px 200px 1fr;
-                grid-template-areas: "attr-label attr-select attr-roller" ". attr-custom ."
-            }
-        }
-        #bio-panel {
-            display: grid;
-            grid-template-rows: max-content 1fr;
-
-            .editor {
-                min-height: 150px;
-                max-height: 260px;
-                overflow-y: auto;
-            }
-        }
-
-        #class-description-panel {
-            display: grid;
-            grid-template-rows: max-content 1fr;
-            margin-right: 0.5rem;
-
-            .class-description {
-                min-height: 50px;
-                max-height:  100px;
-                overflow-y: auto;
-                border: 0;
-                background: transparent;
-            }
-        }
-
-        #middle-panel {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            grid-template-columns: repeat(2, 1fr);
-            justify-content: space-between;
-            flex-wrap: nowrap;
-            height: auto;
-            margin-top: 14px;
-        }
-
-        #items-panel, #props-panel, #spells-panel {
-
-            .dw-item-list, .dw-prop-list {
+            .dw-item-list {
                 overflow-y: auto;
                 height: 175px;
             }
-
-            .dw-spell-list {
-                overflow-y: auto;
-                height: 300px;
-            }
-
-            .add-item, .add-spell, .add-prop {
+            .add-item {
                 font-size: 0.7rem;
                 align-self: center;
             }
-            .add-item:hover, .add-spell:hover, .add-prop:hover {
+            .add-item:hover {
                 text-shadow: 2px 2px 4px var(--color-text-dark-5);
                 cursor: pointer;
             }
@@ -219,24 +132,22 @@
                 scrollbar-width: thin;
                 padding: 0 5px;
             }
-            .items-header, .spells-header, .props-header {
+            .items-header {
                 border-bottom: 1px solid var(--color-border-dark-5);
 
-                .item-name, .spell-name, .prop-name {
+                .item-name {
                     padding-left: 5px;
                     text-align: left;
                     border-bottom: none;
                 }
             }
-            .item-roll, .spell-roll, .prop-roll {
-                cursor: pointer;
-            }
-            .item-name, .spell-name, .prop-roll {
+            
+            .item-name {
                 margin: 0;
                 overflow: hidden;
                 align-items: center;
 
-                .item-image, .spell-image, .prop-image {
+                .item-image {
                     flex: 0 0 30px;
                     height: 30px;
                     width: 30px;
@@ -250,10 +161,10 @@
                     background-color: fade(@darkColor, 10%);
                 }
             }
-            .item-description, .spell-description, .prop-description {
+            .item-description {
                 margin-right: 5px;
             }
-            .item-controls, .spell-controls, .prop-controls {
+            .item-controls {
                 flex: 0 0 68px;
                 align-items: center;
             }

@@ -102,7 +102,7 @@
   "flags": {
     "exportSource": {
       "world": "defwiz-test",
-      "system": "definitely-wizards",
+      "system": "dragon-race",
       "coreVersion": "10.291",
       "systemVersion": "1"
     }

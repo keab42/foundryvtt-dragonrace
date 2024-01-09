@@ -5,7 +5,7 @@ const less = require('gulp-less');
 /*  Compile LESS
 /* ----------------------------------------- */
 
-const DEFWIZ_LESS = ["styles/*.less"];
+const DRAGRACE_LESS = ["styles/*.less"];
 function compileLESS() {
   return gulp.src("styles/main.less")
     .pipe(less())
@@ -18,7 +18,7 @@ const css = gulp.series(compileLESS);
 /* ----------------------------------------- */
 
 function watchUpdates() {
-  gulp.watch(DEFWIZ_LESS, css);
+  gulp.watch(DRAGRACE_LESS, css);
 }
 
 /* ----------------------------------------- */

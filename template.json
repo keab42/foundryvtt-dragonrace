@@ -1,161 +1,35 @@
 {
-    "Actor": {
-        "types": [ "character" ],
-        "character": {
-            "biography": "<p>Everyone knows the proper way to gain arcane abilities is through discipline and years of study. Magic is temperamental, and it's too dangerous to let anybody who just happens to have \"inner power\" cast spells. Wizards who have worked studiously and been tested on their capabilities are the only ones we can trust with that power.</p> <p>Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam.</p><p>The exam is a series of trials designed to test your magical competence, skill, and control. Your party must complete these challenges while keeping up the illusion that you are wise and dignified wizards, not a ragtag bunch whose magic is from anything but book learning.</p>",
-            "class-description": "<p></p>",
-            "stats": {
-                "wizard": 3,
-                "wild": 3
-            },
-            "player-class": "",
-            "prop-1": "",
-            "prop-2": "",
-            "playerClasses": {
-                "none": {
-                    "label": "Roll",
-                    "description": "",
-                    "dtype": "String"
-                },
-                "2d6-familiars": {
-                    "label": "2d6 Familiars in a Trenchcoat",
-                    "description": "DW.FamiliarsDescription",
-                    "dtype": "String"
-                },
-                "alchemist": {
-                    "label": "Alchemist",
-                    "description": "DW.AlchemistDescription",
-                    "dtype": "String"
-                },
-                "bard": {
-                    "label": "Bard",
-                    "description": "DW.BardDescription",
-                    "dtype": "String"
-                },
-                "chosen-one": {
-                    "label": "Chosen One",
-                    "description": "DW.ChosenOneDescription",
-                    "dtype": "String"
-                },
-                "collector": {
-                    "label": "Collector",
-                    "description": "DW.CollectorDescription",
-                    "dtype": "String"
-                },
-                "druid": {
-                    "label": "Druid",
-                    "description": "DW.DruidDescription",
-                    "dtype": "String"
-                },
-                "elemental-blood": {
-                    "label": "Elemental Blood",
-                    "description": "DW.ElementalBloodDescription",
-                    "dtype": "String"
-                },
-                "magician": {
-                    "label": "Magician",
-                    "description": "DW.MagicianDescription",
-                    "dtype": "String"
-                },
-                "muscle-magic": {
-                    "label": "Muscle Magic",
-                    "description": "DW.MuscleMagicDescription",
-                    "dtype": "String"
-                },
-                "vampire": {
-                    "label": "Vampire",
-                    "description": "DW.VampireDescription",
-                    "dtype": "String"
-                },
-                "custom": {
-                    "label": "Custom Class",
-                    "description": "",
-                    "dtype": "String"
-                }
-            },
-            "props-1": {
-                "none": {
-                    "label": "Roll",
-                    "dtype": "String"
-                },
-                "hat": {
-                    "label": "A Pointy Hat and Robes",
-                    "dtype": "String"
-                },
-                "beard": {
-                    "label": "A Long Fake Beard",
-                    "dtype": "String"
-                },
-                "tome": {
-                    "label": "A Massive Tome",
-                    "dtype": "String"
-                },
-                "fake-wand": {
-                    "label": "A Fake Wand",
-                    "dtype": "String"
-                },
-                "familar": {
-                    "label": "A Familiar",
-                    "dtype": "String"
-                },
-                "custom": {
-                    "label": "Create your own item",
-                    "dtype": "String"
-                }
-            },
-            "props-2": {
-                "none": {
-                    "label": "Roll",
-                    "dtype": "String"
-                },
-                "glitter": {
-                    "label": "A Pocket Full of Glitter",
-                    "dtype": "String"
-                },
-                "belt": {
-                    "label": "A Belt with lots of Pouches",
-                    "dtype": "String"
-                },
-                "glasses": {
-                    "label": "A Pair of Spectacles",
-                    "dtype": "String"
-                },
-                "amulet": {
-                    "label": "A Costume-quality Amulet",
-                    "dtype": "String"
-                },
-                "quill": {
-                    "label": "A Quill and Parchment",
-                    "dtype": "String"
-                },
-                "custom": {
-                    "label": "Create your own item",
-                    "dtype": "String"
-                }
-            }
-        }
-    },
-    "Item": {
-        "types": [ "Prop", "Spell", "MiscItem" ],
-        "templates": {
-            "base": {
-                "description": ""
-            }
-        },
-        "Prop": {
-            "templates": ["base"],
-            "quantity": 1,
-            "weight": 0
-        },
-        "Spell": {
-            "templates": ["base"],
-            "quantity": 1,
-            "weight": 0
-        },
-        "MiscItem": {
-            "templates": ["base"],
-            "quantity": 1,
-            "weight": 0
-        }
+  "Actor": {
+    "types": [
+      "character"
+    ],
+    "character": {
+      "biography": "<p>Everyone knows the proper way to gain arcane abilities is through discipline and years of study. Magic is temperamental, and it's too dangerous to let anybody who just happens to have \"inner power\" cast spells. Wizards who have worked studiously and been tested on their capabilities are the only ones we can trust with that power.</p> <p>Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam.</p><p>The exam is a series of trials designed to test your magical competence, skill, and control. Your party must complete these challenges while keeping up the illusion that you are wise and dignified wizards, not a ragtag bunch whose magic is from anything but book learning.</p>",
+      "stats": {
+        "alacrity": 4,
+        "chutzpah": 4,
+        "ferociousness": 4,
+        "scaliness": 4
+      }
     }
+  },
+  "Item": {
+    "types": [
+      "Prop",
+      "Spell",
+      "MiscItem"
+    ],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "MiscItem": {
+      "templates": [
+        "base"
+      ],
+      "quantity": 1,
+      "weight": 0
+    }
+  }
 }

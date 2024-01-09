@@ -195,11 +195,11 @@ li.folder > .folder-header .create-button .fa-plus {
 }
 @font-face {
   font-family: Title;
-  src: url('/systems/definitely-wizards/resources/fonts/Chelsea_Market/ChelseaMarket-Regular.ttf');
+  src: url('/systems/dragon-race/resources/fonts/Chelsea_Market/ChelseaMarket-Regular.ttf');
 }
 @font-face {
   font-family: Body;
-  src: url('/systems/definitely-wizards/resources/fonts/Montserrat/Montserrat-Medium.ttf');
+  src: url('/systems/dragon-race/resources/fonts/Montserrat/Montserrat-Medium.ttf');
 }
 .grid-columns {
   display: grid;
@@ -222,101 +222,93 @@ li.folder > .folder-header .create-button .fa-plus {
 .error-red {
   color: darkred !important;
 }
-.definitelywizards .window-content {
+.dragonrace .window-content {
   color: #121212;
   height: 100%;
   padding: 10px;
   overflow-y: auto;
 }
-.definitelywizards .sheet-panel {
+.dragonrace .sheet-panel {
   display: grid;
   grid-template-rows: max-content max-content 1fr;
 }
-.definitelywizards .sheet-panel nav.sheet-tabs {
+.dragonrace .sheet-panel nav.sheet-tabs {
   border-top: none;
   border-bottom: 1px solid #121212;
   margin: 14px 0px 0px 0px;
 }
-.definitelywizards .sheet-panel nav.sheet-tabs a.active {
+.dragonrace .sheet-panel nav.sheet-tabs a.active {
   background-color: #ffc80d;
 }
-.definitelywizards .sheet-panel nav.sheet-tabs a {
+.dragonrace .sheet-panel nav.sheet-tabs a {
   border: 1px solid #19160D;
   border-radius: 10px 10px 0px 0px;
   flex: 1;
   font-family: Title;
 }
-.definitelywizards .sheet-panel .sheet-body {
+.dragonrace .sheet-panel .sheet-body {
   border: 1px solid #121212;
   padding: 5px;
 }
-.definitelywizards .sheet-panel #stat-panel {
+.dragonrace .sheet-panel #stat-panel {
   height: auto;
   display: grid;
   grid-template-columns: 100px 1fr 1fr;
-  grid-template-rows: 40px 1fr;
-  grid-template-areas: "portrait name name" "portrait wizard wild";
+  grid-template-rows: 40px 1fr 1fr;
+  grid-template-areas: "portrait name name" "portrait alacrity chutzpah" "portrait ferociousness scaliness";
   gap: 10px;
 }
-.definitelywizards .sheet-panel #stat-panel .profile-img {
+.dragonrace .sheet-panel #stat-panel .profile-img {
   grid-area: portrait;
   height: 100px;
   background-color: rgba(25, 22, 13, 0.1);
 }
-.definitelywizards .sheet-panel #stat-panel .char-name {
+.dragonrace .sheet-panel #stat-panel .char-name {
   grid-area: name;
   border-bottom: 0;
 }
-.definitelywizards .sheet-panel #stat-panel .char-name input {
+.dragonrace .sheet-panel #stat-panel .char-name input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
-.definitelywizards .sheet-panel #stat-panel #stat-wizard,
-.definitelywizards .sheet-panel #stat-panel #stat-wild {
-  grid-area: wizard;
+.dragonrace .sheet-panel #stat-panel #stat-alacrity,
+.dragonrace .sheet-panel #stat-panel #stat-chutzpah,
+.dragonrace .sheet-panel #stat-panel #stat-ferociousness,
+.dragonrace .sheet-panel #stat-panel #stat-scaliness {
+  grid-area: alacrity;
   gap: 0;
   margin-top: -10px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto 1fr;
-  grid-template-areas: "title title title ." "value die dice." "plus minus reset .";
+  grid-template-areas: "title title" "value die";
   align-items: center;
 }
-.definitelywizards .sheet-panel #stat-panel #stat-wizard {
-  grid-area: wizard;
+.dragonrace .sheet-panel #stat-panel #stat-alacrity {
+  grid-area: alacrity;
 }
-.definitelywizards .sheet-panel #stat-panel #stat-wild {
-  grid-area: wild;
+.dragonrace .sheet-panel #stat-panel #stat-chutzpah {
+  grid-area: chutzpah;
 }
-.definitelywizards .sheet-panel #stat-panel .stat-title {
+.dragonrace .sheet-panel #stat-panel #stat-ferociousness {
+  grid-area: ferociousness;
+}
+.dragonrace .sheet-panel #stat-panel #stat-scaliness {
+  grid-area: scaliness;
+}
+.dragonrace .sheet-panel #stat-panel .stat-title {
   grid-area: title;
 }
-.definitelywizards .sheet-panel #stat-panel .stat-button {
+.dragonrace .sheet-panel #stat-panel .stat-button {
   height: 40px;
   grid-area: icon;
 }
-.definitelywizards .sheet-panel #stat-panel .stat-button-plus {
-  height: 25px;
-  grid-area: plus;
-}
-.definitelywizards .sheet-panel #stat-panel .stat-button-minus {
-  height: 25px;
-  grid-area: minus;
-}
-.definitelywizards .sheet-panel #stat-panel .stat-button-reset {
-  height: 25px;
-  grid-area: reset;
-}
-.definitelywizards .sheet-panel #stat-panel .stat-roll-single {
+.dragonrace .sheet-panel #stat-panel .stat-roll-single {
   height: 35px;
   grid-area: die;
 }
-.definitelywizards .sheet-panel #stat-panel .stat-roll-double {
-  height: 35px;
-  grid-area: dice;
-}
-.definitelywizards .sheet-panel #stat-panel .stat-value {
+.dragonrace .sheet-panel #stat-panel .stat-value {
   font-size: 45px;
   font-family: Title;
   height: 50px;
@@ -326,209 +318,39 @@ li.folder > .folder-header .create-button .fa-plus {
   background: transparent;
   grid-area: value;
 }
-.definitelywizards .sheet-panel #attributes-tab {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
-}
-.definitelywizards .sheet-panel #attributes-panel {
-  margin-right: 0.5rem;
-}
-.definitelywizards .sheet-panel #attributes-panel #attributes {
-  display: grid;
-  gap: 10px;
-  margin-top: 10px;
-}
-.definitelywizards .sheet-panel #attributes-panel #attributes label {
-  grid-area: attr-label;
-}
-.definitelywizards .sheet-panel #attributes-panel #attributes select {
-  grid-area: attr-select;
-}
-.definitelywizards .sheet-panel #attributes-panel #attributes img {
-  grid-area: attr-roller;
-}
-.definitelywizards .sheet-panel #attributes-panel #attributes input {
-  grid-area: attr-custom;
-}
-.definitelywizards .sheet-panel #attributes-panel .attribute {
-  align-items: center;
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 72px 200px 1fr;
-  grid-template-areas: "attr-label attr-select attr-roller" ". attr-custom .";
-}
-.definitelywizards .sheet-panel #bio-panel {
-  display: grid;
-  grid-template-rows: max-content 1fr;
-}
-.definitelywizards .sheet-panel #bio-panel .editor {
-  min-height: 150px;
-  max-height: 260px;
-  overflow-y: auto;
-}
-.definitelywizards .sheet-panel #class-description-panel {
-  display: grid;
-  grid-template-rows: max-content 1fr;
-  margin-right: 0.5rem;
-}
-.definitelywizards .sheet-panel #class-description-panel .class-description {
-  min-height: 50px;
-  max-height: 100px;
-  overflow-y: auto;
-  border: 0;
-  background: transparent;
-}
-.definitelywizards .sheet-panel #middle-panel {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  height: auto;
-  margin-top: 14px;
-}
-.definitelywizards .sheet-panel #items-panel .dw-item-list,
-.definitelywizards .sheet-panel #props-panel .dw-item-list,
-.definitelywizards .sheet-panel #spells-panel .dw-item-list,
-.definitelywizards .sheet-panel #items-panel .dw-prop-list,
-.definitelywizards .sheet-panel #props-panel .dw-prop-list,
-.definitelywizards .sheet-panel #spells-panel .dw-prop-list {
+.dragonrace .sheet-panel #items-panel .dw-item-list {
   overflow-y: auto;
   height: 175px;
 }
-.definitelywizards .sheet-panel #items-panel .dw-spell-list,
-.definitelywizards .sheet-panel #props-panel .dw-spell-list,
-.definitelywizards .sheet-panel #spells-panel .dw-spell-list {
-  overflow-y: auto;
-  height: 300px;
-}
-.definitelywizards .sheet-panel #items-panel .add-item,
-.definitelywizards .sheet-panel #props-panel .add-item,
-.definitelywizards .sheet-panel #spells-panel .add-item,
-.definitelywizards .sheet-panel #items-panel .add-spell,
-.definitelywizards .sheet-panel #props-panel .add-spell,
-.definitelywizards .sheet-panel #spells-panel .add-spell,
-.definitelywizards .sheet-panel #items-panel .add-prop,
-.definitelywizards .sheet-panel #props-panel .add-prop,
-.definitelywizards .sheet-panel #spells-panel .add-prop {
+.dragonrace .sheet-panel #items-panel .add-item {
   font-size: 0.7rem;
   align-self: center;
 }
-.definitelywizards .sheet-panel #items-panel .add-item:hover,
-.definitelywizards .sheet-panel #props-panel .add-item:hover,
-.definitelywizards .sheet-panel #spells-panel .add-item:hover,
-.definitelywizards .sheet-panel #items-panel .add-spell:hover,
-.definitelywizards .sheet-panel #props-panel .add-spell:hover,
-.definitelywizards .sheet-panel #spells-panel .add-spell:hover,
-.definitelywizards .sheet-panel #items-panel .add-prop:hover,
-.definitelywizards .sheet-panel #props-panel .add-prop:hover,
-.definitelywizards .sheet-panel #spells-panel .add-prop:hover {
+.dragonrace .sheet-panel #items-panel .add-item:hover {
   text-shadow: 2px 2px 4px var(--color-text-dark-5);
   cursor: pointer;
 }
-.definitelywizards .sheet-panel #items-panel ol,
-.definitelywizards .sheet-panel #props-panel ol,
-.definitelywizards .sheet-panel #spells-panel ol {
+.dragonrace .sheet-panel #items-panel ol {
   list-style: none;
   margin: 0;
   overflow-y: auto;
   scrollbar-width: thin;
   padding: 0 5px;
 }
-.definitelywizards .sheet-panel #items-panel .items-header,
-.definitelywizards .sheet-panel #props-panel .items-header,
-.definitelywizards .sheet-panel #spells-panel .items-header,
-.definitelywizards .sheet-panel #items-panel .spells-header,
-.definitelywizards .sheet-panel #props-panel .spells-header,
-.definitelywizards .sheet-panel #spells-panel .spells-header,
-.definitelywizards .sheet-panel #items-panel .props-header,
-.definitelywizards .sheet-panel #props-panel .props-header,
-.definitelywizards .sheet-panel #spells-panel .props-header {
+.dragonrace .sheet-panel #items-panel .items-header {
   border-bottom: 1px solid var(--color-border-dark-5);
 }
-.definitelywizards .sheet-panel #items-panel .items-header .item-name,
-.definitelywizards .sheet-panel #props-panel .items-header .item-name,
-.definitelywizards .sheet-panel #spells-panel .items-header .item-name,
-.definitelywizards .sheet-panel #items-panel .spells-header .item-name,
-.definitelywizards .sheet-panel #props-panel .spells-header .item-name,
-.definitelywizards .sheet-panel #spells-panel .spells-header .item-name,
-.definitelywizards .sheet-panel #items-panel .props-header .item-name,
-.definitelywizards .sheet-panel #props-panel .props-header .item-name,
-.definitelywizards .sheet-panel #spells-panel .props-header .item-name,
-.definitelywizards .sheet-panel #items-panel .items-header .spell-name,
-.definitelywizards .sheet-panel #props-panel .items-header .spell-name,
-.definitelywizards .sheet-panel #spells-panel .items-header .spell-name,
-.definitelywizards .sheet-panel #items-panel .spells-header .spell-name,
-.definitelywizards .sheet-panel #props-panel .spells-header .spell-name,
-.definitelywizards .sheet-panel #spells-panel .spells-header .spell-name,
-.definitelywizards .sheet-panel #items-panel .props-header .spell-name,
-.definitelywizards .sheet-panel #props-panel .props-header .spell-name,
-.definitelywizards .sheet-panel #spells-panel .props-header .spell-name,
-.definitelywizards .sheet-panel #items-panel .items-header .prop-name,
-.definitelywizards .sheet-panel #props-panel .items-header .prop-name,
-.definitelywizards .sheet-panel #spells-panel .items-header .prop-name,
-.definitelywizards .sheet-panel #items-panel .spells-header .prop-name,
-.definitelywizards .sheet-panel #props-panel .spells-header .prop-name,
-.definitelywizards .sheet-panel #spells-panel .spells-header .prop-name,
-.definitelywizards .sheet-panel #items-panel .props-header .prop-name,
-.definitelywizards .sheet-panel #props-panel .props-header .prop-name,
-.definitelywizards .sheet-panel #spells-panel .props-header .prop-name {
+.dragonrace .sheet-panel #items-panel .items-header .item-name {
   padding-left: 5px;
   text-align: left;
   border-bottom: none;
 }
-.definitelywizards .sheet-panel #items-panel .item-roll,
-.definitelywizards .sheet-panel #props-panel .item-roll,
-.definitelywizards .sheet-panel #spells-panel .item-roll,
-.definitelywizards .sheet-panel #items-panel .spell-roll,
-.definitelywizards .sheet-panel #props-panel .spell-roll,
-.definitelywizards .sheet-panel #spells-panel .spell-roll,
-.definitelywizards .sheet-panel #items-panel .prop-roll,
-.definitelywizards .sheet-panel #props-panel .prop-roll,
-.definitelywizards .sheet-panel #spells-panel .prop-roll {
-  cursor: pointer;
-}
-.definitelywizards .sheet-panel #items-panel .item-name,
-.definitelywizards .sheet-panel #props-panel .item-name,
-.definitelywizards .sheet-panel #spells-panel .item-name,
-.definitelywizards .sheet-panel #items-panel .spell-name,
-.definitelywizards .sheet-panel #props-panel .spell-name,
-.definitelywizards .sheet-panel #spells-panel .spell-name,
-.definitelywizards .sheet-panel #items-panel .prop-roll,
-.definitelywizards .sheet-panel #props-panel .prop-roll,
-.definitelywizards .sheet-panel #spells-panel .prop-roll {
+.dragonrace .sheet-panel #items-panel .item-name {
   margin: 0;
   overflow: hidden;
   align-items: center;
 }
-.definitelywizards .sheet-panel #items-panel .item-name .item-image,
-.definitelywizards .sheet-panel #props-panel .item-name .item-image,
-.definitelywizards .sheet-panel #spells-panel .item-name .item-image,
-.definitelywizards .sheet-panel #items-panel .spell-name .item-image,
-.definitelywizards .sheet-panel #props-panel .spell-name .item-image,
-.definitelywizards .sheet-panel #spells-panel .spell-name .item-image,
-.definitelywizards .sheet-panel #items-panel .prop-roll .item-image,
-.definitelywizards .sheet-panel #props-panel .prop-roll .item-image,
-.definitelywizards .sheet-panel #spells-panel .prop-roll .item-image,
-.definitelywizards .sheet-panel #items-panel .item-name .spell-image,
-.definitelywizards .sheet-panel #props-panel .item-name .spell-image,
-.definitelywizards .sheet-panel #spells-panel .item-name .spell-image,
-.definitelywizards .sheet-panel #items-panel .spell-name .spell-image,
-.definitelywizards .sheet-panel #props-panel .spell-name .spell-image,
-.definitelywizards .sheet-panel #spells-panel .spell-name .spell-image,
-.definitelywizards .sheet-panel #items-panel .prop-roll .spell-image,
-.definitelywizards .sheet-panel #props-panel .prop-roll .spell-image,
-.definitelywizards .sheet-panel #spells-panel .prop-roll .spell-image,
-.definitelywizards .sheet-panel #items-panel .item-name .prop-image,
-.definitelywizards .sheet-panel #props-panel .item-name .prop-image,
-.definitelywizards .sheet-panel #spells-panel .item-name .prop-image,
-.definitelywizards .sheet-panel #items-panel .spell-name .prop-image,
-.definitelywizards .sheet-panel #props-panel .spell-name .prop-image,
-.definitelywizards .sheet-panel #spells-panel .spell-name .prop-image,
-.definitelywizards .sheet-panel #items-panel .prop-roll .prop-image,
-.definitelywizards .sheet-panel #props-panel .prop-roll .prop-image,
-.definitelywizards .sheet-panel #spells-panel .prop-roll .prop-image {
+.dragonrace .sheet-panel #items-panel .item-name .item-image {
   flex: 0 0 30px;
   height: 30px;
   width: 30px;
@@ -537,41 +359,17 @@ li.folder > .folder-header .create-button .fa-plus {
   background-position: 50% 0;
   border: none;
 }
-.definitelywizards .sheet-panel #items-panel .item-name .item-image,
-.definitelywizards .sheet-panel #props-panel .item-name .item-image,
-.definitelywizards .sheet-panel #spells-panel .item-name .item-image,
-.definitelywizards .sheet-panel #items-panel .spell-name .item-image,
-.definitelywizards .sheet-panel #props-panel .spell-name .item-image,
-.definitelywizards .sheet-panel #spells-panel .spell-name .item-image,
-.definitelywizards .sheet-panel #items-panel .prop-roll .item-image,
-.definitelywizards .sheet-panel #props-panel .prop-roll .item-image,
-.definitelywizards .sheet-panel #spells-panel .prop-roll .item-image {
+.dragonrace .sheet-panel #items-panel .item-name .item-image {
   background-color: rgba(25, 22, 13, 0.1);
 }
-.definitelywizards .sheet-panel #items-panel .item-description,
-.definitelywizards .sheet-panel #props-panel .item-description,
-.definitelywizards .sheet-panel #spells-panel .item-description,
-.definitelywizards .sheet-panel #items-panel .spell-description,
-.definitelywizards .sheet-panel #props-panel .spell-description,
-.definitelywizards .sheet-panel #spells-panel .spell-description,
-.definitelywizards .sheet-panel #items-panel .prop-description,
-.definitelywizards .sheet-panel #props-panel .prop-description,
-.definitelywizards .sheet-panel #spells-panel .prop-description {
+.dragonrace .sheet-panel #items-panel .item-description {
   margin-right: 5px;
 }
-.definitelywizards .sheet-panel #items-panel .item-controls,
-.definitelywizards .sheet-panel #props-panel .item-controls,
-.definitelywizards .sheet-panel #spells-panel .item-controls,
-.definitelywizards .sheet-panel #items-panel .spell-controls,
-.definitelywizards .sheet-panel #props-panel .spell-controls,
-.definitelywizards .sheet-panel #spells-panel .spell-controls,
-.definitelywizards .sheet-panel #items-panel .prop-controls,
-.definitelywizards .sheet-panel #props-panel .prop-controls,
-.definitelywizards .sheet-panel #spells-panel .prop-controls {
+.dragonrace .sheet-panel #items-panel .item-controls {
   flex: 0 0 68px;
   align-items: center;
 }
-.definitelywizards .chatItem .item-image {
+.dragonrace .chatItem .item-image {
   flex: 0 0 15px;
   height: 15px;
   width: 15px;
