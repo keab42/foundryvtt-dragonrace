@@ -1,7 +1,6 @@
 import { DragonRaceActor } from "./actor.js";
 import { DragonRaceActorSheet } from "./actor-sheet.js";
 import { DragonRaceItemSheet } from "./item-sheet.js";
-import * as Chat from "./chat.js"
 
 Hooks.once("init", async function () {
     console.log(`DragonRace: Initializing`);
@@ -15,10 +14,10 @@ Hooks.once("init", async function () {
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("DragonRace", DragonRaceActorSheet, { label: "Definitely Wizards Character Sheet (Default)", makeDefault: true });
+    Actors.registerSheet("DragonRace", DragonRaceActorSheet, { label: "Dragon Race Character Sheet (Default)", makeDefault: true });
 
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("DragonRace", DragonRaceItemSheet, { label: "Definitely Wizards Item Sheet (Default)", makeDefault: true });
+    Items.registerSheet("DragonRace", DragonRaceItemSheet, { label: "Dragon Race Item Sheet (Default)", makeDefault: true });
 
     Handlebars.registerHelper("removeProperty", function (obj, property) {
         delete obj[property];

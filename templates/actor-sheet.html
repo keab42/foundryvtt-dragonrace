@@ -9,26 +9,26 @@
             {{!-- Stats Block --}}
             <div id="stat-alacrity">
                 <h2 class="stat-title">Alacrity</h2>
-                <input class="stat-value" name="stats.alacrity" data-type="Number" value="{{system.stats.alacrity}}" />
+                <input name="system.stats.alacrity" class="stat-value" type="number" data-type="Number" value="{{system.stats.alacrity}}" />
                 <img class="stat-roll-single expand no-border" title="{{localize 'DR.AlacrityRollTooltip'}}" data-roll="{{system.stats.alacrity}}d6"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
             <div id="stat-chutzpah">
                 <h2 class="stat-title">Chutzpah</h2>
-                <input class="stat-value" name="stats.chutzpah" data-type="Number" value="{{system.stats.chutzpah}}" />
-                <img class="stat-roll-single expand no-border" data-roll="1d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
+                <input name="system.stats.chutzpah" class="stat-value" type="number" data-type="Number" value="{{system.stats.chutzpah}}" />
+                <img class="stat-roll-single expand no-border" data-roll="{{system.stats.alacrity}}d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
             <div id="stat-ferociousness">
                 <h2 class="stat-title">Ferociousness</h2>
-                <input class="stat-value" name="stats.ferociousness" data-type="Number" value="{{system.stats.ferociousness}}" />
-                <img class="stat-roll-single expand no-border" data-roll="1d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
+                <input name="system.stats.ferociousness" class="stat-value" type="number" data-type="Number" value="{{system.stats.ferociousness}}" />
+                <img class="stat-roll-single expand no-border" data-roll="{{system.stats.alacrity}}d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
             <div id="stat-scaliness">
                 <h2 class="stat-title">Scaliness</h2>
-                <input class="stat-value" name="stats.scaliness" data-type="Number" value="{{system.stats.scaliness}}" />
-                <img class="stat-roll-single expand no-border" data-roll="1d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
+                <input name="system.stats.scaliness" class="stat-value" type="number" data-type="Number" value="{{system.stats.scaliness}}" />
+                <img class="stat-roll-single expand no-border" data-roll="{{system.stats.alacrity}}d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
         </div>
@@ -37,7 +37,7 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
         {{!-- Props and Items --}}
-        <div class="tab items" data-group="primary" data-tab="items">
+        <div class="tab items" data-group="primary">
             {{!-- Items --}}
             <div id="items-panel">
                 <h2>{{localize 'DR.ItemsTitle'}}</h2>

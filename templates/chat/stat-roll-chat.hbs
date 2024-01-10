@@ -1,0 +1,22 @@
+<div class="chat-card stat-roll" data-owner-id="{{owner}}" data-statName="{{statName}}" data-successes="{{successes}}" data-failures="{{failures}}">
+    <div class="card-content">
+        <p>
+            <strong>
+                {{statName}}
+            </strong>
+        </p>
+    </div>
+
+    <div class="dice-roll">
+         <div class="dice-successes">
+            {{successes}} Successes
+        </div>
+        <div class="dice-values">
+            {{#each results}}
+                <div class="dice-result {{#if this.success}}dice-success{{else}}dice-fail{{/if}}">
+                    <div>{{this.result}}</div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

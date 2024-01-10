@@ -14,7 +14,6 @@ export class DragonRaceActorSheet extends ActorSheet {
             width: 750,
             height: 625,
             scrollY: [ "dr-item-list" ],
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }],
             dragDrop: [{ dropSelector: null, dragSelector: '[draggable]' }],
             resizable: false
         });
@@ -38,17 +37,49 @@ export class DragonRaceActorSheet extends ActorSheet {
         super.activateListeners(html);
 
         html.find(".stat-roll-single").click(async (ev) => {
-            const template = "systems/dragon-race/templates/chat/skill-roll-chat.hbs";
+            const template = "systems/dragon-race/templates/chat/stat-roll-chat.hbs";
+            const localisedStatName = this._getLocalisedStatName(ev.currentTarget);
             const roller = $(ev.currentTarget);
-            const input = roller.siblings(".stat-value").get(0);
             const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
-            const isSuccess = roll.total >= 4;
-            const rollSuccess = isSuccess ? game.i18n.localize("DW.Success") : game.i18n.localize("DW.Failed");
+
+            console.log("MKTEST");
+            console.log(localisedStatName);
+            console.log(roll);
+            console.log(roll.dice);
+
+            let results = [];
+            let successes = 0;
+            let failures = 0;
+
+            for (let dicetype of roll.dice) {
+                console.log(dicetype);
+                let isSuccess = false;
+                for (let result of dicetype.results) {
+                    console.log(result);
+                    if (this._isSuccess(result.result)) {
+                        successes++;
+                        isSuccess = true;
+                    } else {
+                        failures++;
+                        isSuccess = false;
+                    }
+                    let outcome = {
+                        result: result.result,
+                        success: isSuccess
+                    };
+                    results.push(outcome);
+                }
+            }
+
+            console.log(results);
 
             let templateData = {
-                isSuccess: isSuccess,
+                successes: successes,
+                failures: failures,
+                results: results,
                 diceFormula: roll.formula,
                 diceTotal: roll.total,
+                statName: localisedStatName,
                 owner: this.actor.id
             };
 
@@ -62,10 +93,34 @@ export class DragonRaceActorSheet extends ActorSheet {
              });
 
         });
-        
+
         html.find(".add-item").click(this._addItem.bind(this));
         html.find(".item-edit").click(this._editItem.bind(this));
         html.find(".item-delete").click(this._deleteItem.bind(this));
+    }
+
+    _getLocalisedStatName(element) {
+        let statName = "";
+        switch(element.parentElement.id) {
+            case "stat-alacrity":
+                statName =  game.i18n.localize("DR.Alacrity");
+                break;
+            case "stat-chutzpah":
+                statName =  game.i18n.localize("DR.Chutzpah");
+                break;
+            case "stat-ferociousness":
+                statName =  game.i18n.localize("DR.Ferociousness");
+                break;
+            case "stat-scaliness":
+                statName =  game.i18n.localize("DR.Scaliness");
+                break;
+        }
+
+        return statName
+    }
+
+    _isSuccess(number) {
+        return number >= 4;
     }
 
     _prepareCharacterItems(sheetData) {
@@ -123,25 +178,6 @@ export class DragonRaceActorSheet extends ActorSheet {
             },
             default: "no"
         }).render(true);
-    }
-
-    async _onAttributeRoll(event) {
-        const roller = $(event.currentTarget);
-        const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
-        const parent = roller.parent("div");
-        const label = parent.find("label").get(0).innerText;
-        const select = parent.find("select").get(0);
-        const attributeName = select.name;
-        const option = select.options[roll.total];
-
-        roll.toMessage({
-            user: game.user.id,  // avoid deprecation warning, backwards compatible
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`,
-            roll: roll,
-            sound: CONFIG.sounds.dice,
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL
-        });
     }
 
     async rendering(event) {

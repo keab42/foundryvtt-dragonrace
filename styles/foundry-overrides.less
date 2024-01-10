@@ -46,7 +46,7 @@ h2 {
     border-bottom: 2px solid @textColor;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     border: 1px solid @textColor;
     border-radius: 0px;
     font-family: Title;
@@ -168,6 +168,60 @@ li.folder > .folder-header h3 {
 
 div.card-buttons {
     margin-top: 5px;
+}
+
+div.card-content {
+    width: 100%;
+    text-align: center;
+}
+
+div.dice-roll {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    flex: 1;
+
+    .dice-successes {
+        text-align: center;
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    .dice-values {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        flex: 1;
+
+        .dice-result {
+            flex: 1;
+            aspect-ratio: 1 / 1;
+            padding: 5px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            background-color: fade(@darkColor, 25%);
+            border: 5px solid var(--color-border-dark-5);
+
+            div {
+                text-align: center;
+                flex: 1;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+        }
+
+        .dice-success {
+            border-color: @successColor;
+        }
+
+        .dice-fail {
+            border-color: @failColor;
+        }
+    }
 }
 
 .combat-sidebar .combat-tracker-header nav.encounters h4,
