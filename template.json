@@ -14,16 +14,14 @@
   },
   "Item": {
     "types": [
-      "Prop",
-      "Spell",
-      "MiscItem"
+      "Equipment"
     ],
     "templates": {
       "base": {
         "description": ""
       }
     },
-    "MiscItem": {
+    "Equipment": {
       "templates": [
         "base"
       ],

@@ -36,67 +36,79 @@ export class DragonRaceActorSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        html.find(".stat-roll-single").click(async (ev) => {
-            const template = "systems/dragon-race/templates/chat/stat-roll-chat.hbs";
-            const localisedStatName = this._getLocalisedStatName(ev.currentTarget);
-            const roller = $(ev.currentTarget);
-            const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
-
-            console.log("MKTEST");
-            console.log(localisedStatName);
-            console.log(roll);
-            console.log(roll.dice);
-
-            let results = [];
-            let successes = 0;
-            let failures = 0;
-
-            for (let dicetype of roll.dice) {
-                console.log(dicetype);
-                let isSuccess = false;
-                for (let result of dicetype.results) {
-                    console.log(result);
-                    if (this._isSuccess(result.result)) {
-                        successes++;
-                        isSuccess = true;
-                    } else {
-                        failures++;
-                        isSuccess = false;
-                    }
-                    let outcome = {
-                        result: result.result,
-                        success: isSuccess
-                    };
-                    results.push(outcome);
-                }
-            }
-
-            console.log(results);
-
-            let templateData = {
-                successes: successes,
-                failures: failures,
-                results: results,
-                diceFormula: roll.formula,
-                diceTotal: roll.total,
-                statName: localisedStatName,
-                owner: this.actor.id
-            };
-
-            ChatMessage.create({
-                user: game.user.id,
-                speaker: ChatMessage.getSpeaker({actor: this.actor}),
-                content: await renderTemplate(template, templateData),
-                roll: roll,
-                sound: CONFIG.sounds.dice,
-                type: CONST.CHAT_MESSAGE_TYPES.ROLL
-             });
-
-        });
+        html.find(".stat-roll-single").click(this._rollStat.bind(this));
 
         html.find(".add-item").click(this._addItem.bind(this));
         html.find(".item-edit").click(this._editItem.bind(this));
         html.find(".item-delete").click(this._deleteItem.bind(this));
+
+        console.log(this.actor.isOwner);
+        // Drag events for macros.
+        if (this.actor.isOwner) {
+            console.log("MKTEST");
+            let handler = ev => this._onDragStart(ev);
+            // Find all items on the character sheet.
+            html.find('img.stat-roll-single').each((i, img) => {
+                console.log(i);
+                console.log(img);
+                // Add draggable attribute and dragstart listener.
+                img.setAttribute("draggable", true);
+                img.addEventListener("dragstart", handler, false);
+          });
+        } else {
+            console.log("MKTEST");
+            console.log("Not Owner");
+        }
+    }
+
+    async _rollStat(event) {
+        const template = "systems/dragon-race/templates/chat/stat-roll-chat.hbs";
+        const localisedStatName = this._getLocalisedStatName(event.currentTarget);
+        const roller = $(event.currentTarget);
+        const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
+
+        let results = [];
+        let successes = 0;
+        let failures = 0;
+
+        for (let dicetype of roll.dice) {
+            let isSuccess = false;
+            for (let result of dicetype.results) {
+                if (this._isSuccess(result.result)) {
+                    successes++;
+                    isSuccess = true;
+                } else {
+                    failures++;
+                    isSuccess = false;
+                }
+                let outcome = {
+                    result: result.result,
+                    success: isSuccess
+                };
+                results.push(outcome);
+            }
+        }
+
+        console.log(results);
+
+        let templateData = {
+            successes: successes,
+            failures: failures,
+            results: results,
+            diceFormula: roll.formula,
+            diceTotal: roll.total,
+            statName: localisedStatName,
+            owner: this.actor.id
+        };
+
+        ChatMessage.create({
+            user: game.user.id,
+            speaker: ChatMessage.getSpeaker({actor: this.actor}),
+            content: await renderTemplate(template, templateData),
+            roll: roll,
+            sound: CONFIG.sounds.dice,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL
+         });
     }
 
     _getLocalisedStatName(element) {
@@ -115,6 +127,8 @@ export class DragonRaceActorSheet extends ActorSheet {
                 statName =  game.i18n.localize("DR.Scaliness");
                 break;
         }
+        console.log("MKTEST");
+        console.log(statName);
 
         return statName
     }

@@ -12,23 +12,23 @@ body {
   color: #121212;
 }
 .window-app .window-content {
-  background: #fdf2c3;
+  background: #d4e7e8;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #4d3b00;
   border: 1px solid #ffffff;
 }
 .app {
-  background: #ffc80d;
+  background: #9dfbff;
 }
 body {
-  background: #E2E0CF;
+  background: #9edee1;
 }
 #chat-log .message,
 #chat-log .message.whisper,
 #chat-form textarea {
   background: none;
-  background: #fdf2c3;
+  background: #d4e7e8;
 }
 .flavor-text {
   color: #121212;
@@ -52,7 +52,7 @@ input[type="text"]:focus {
   box-shadow: 0 0 5px #4d3b00;
 }
 a:hover {
-  text-shadow: 0 0 8px #ffc80d;
+  text-shadow: 0 0 8px #9dfbff;
 }
 select,
 button,
@@ -63,7 +63,7 @@ form button {
   border: 1px solid #19160D;
 }
 button:hover {
-  box-shadow: 0 0 10px #ffc80d;
+  box-shadow: 0 0 10px #9dfbff;
 }
 #chat-log .message,
 #chat-log .message h2,
@@ -96,10 +96,10 @@ input[type="datetime-local"] {
   color: #121212;
 }
 .tabs .item.active {
-  text-shadow: 0 0 10px #ffc80d;
+  text-shadow: 0 0 10px #9dfbff;
 }
 #sidebar-tabs {
-  box-shadow: 0 0 10px #ffc80d;
+  box-shadow: 0 0 10px #9dfbff;
   border-bottom: 1px solid #19160D;
 }
 #sidebar-tabs > .item.active {
@@ -148,46 +148,55 @@ div.dice-roll {
   width: 100%;
   flex: 1;
 }
+div.dice-roll .dice-formula {
+  margin: 10px;
+  padding: 5px;
+}
 div.dice-roll .dice-successes {
   text-align: center;
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 div.dice-roll .dice-values {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   flex-direction: row;
   flex: 1;
 }
 div.dice-roll .dice-values .dice-result {
   flex: 1;
+  flex-grow: 0;
+  width: 40px;
   aspect-ratio: 1;
-  padding: 5px;
+  padding: 2px;
   margin: 5px;
   display: flex;
   align-items: center;
-  background-color: rgba(25, 22, 13, 0.25);
-  border: 5px solid var(--color-border-dark-5);
+  background-color: rgba(25, 22, 13, 0.5);
+  border: 1px solid var(--color-border-dark-5);
 }
 div.dice-roll .dice-values .dice-result div {
   text-align: center;
-  flex: 1;
-  font-size: 1.5em;
+  width: 40px;
+  font-size: 1.25em;
   font-weight: bold;
 }
 div.dice-roll .dice-values .dice-success {
-  border-color: #1c8718;
+  border-color: #00ff00;
+  box-shadow: 0px 0px 5px 1px #00ff00;
 }
 div.dice-roll .dice-values .dice-fail {
-  border-color: #871818;
+  border-color: #ff0000;
+  box-shadow: 0px 0px 5px 1px #ff0000;
 }
 .combat-sidebar .combat-tracker-header nav.encounters h4,
 .combat-sidebar .combat-tracker-header a.combat-button {
   color: #121212;
 }
 #hotbar .macro:hover {
-  box-shadow: 0 0 10px #ffc80d inset;
+  box-shadow: 0 0 10px #9dfbff inset;
 }
 #hotbar .macro.active:hover {
   border: 1px solid #4d3b00;
@@ -199,12 +208,12 @@ div.dice-roll .dice-values .dice-fail {
 #navigation #scene-list .scene.view,
 #navigation #scene-list .scene.context {
   color: #ffffff;
-  border: 1px solid #ffc80d;
-  border-bottom: 2px solid #ffc80d;
-  box-shadow: 0 0 10px #fdf2c3;
+  border: 1px solid #9dfbff;
+  border-bottom: 2px solid #9dfbff;
+  box-shadow: 0 0 10px #d4e7e8;
 }
 #navigation #nav-toggle:hover {
-  text-shadow: 0 0 10px #ffc80d;
+  text-shadow: 0 0 10px #9dfbff;
 }
 #navigation #scene-list .scene {
   color: #ffffff;
@@ -212,13 +221,13 @@ div.dice-roll .dice-values .dice-fail {
 #controls ol.control-tools > li.active,
 #controls ol.control-tools > li:hover {
   color: #ffffff;
-  border: 1px solid #ffc80d;
-  border-bottom: 2px solid #ffc80d;
+  border: 1px solid #9dfbff;
+  border-bottom: 2px solid #9dfbff;
   box-shadow: 0 0 10px #19160D;
 }
 .camera-view .player-name {
   color: #ffffff;
-  border: 2px solid #ffc80d;
+  border: 2px solid #9dfbff;
 }
 #players ol .player-name.self {
   color: #121212;
@@ -228,7 +237,7 @@ div.dice-roll .dice-values .dice-fail {
   color: #ffffff;
 }
 .compendium-sidebar .directory-item.compendium:hover .compendium-name {
-  text-shadow: 0 0 8px #ffc80d;
+  text-shadow: 0 0 8px #9dfbff;
 }
 .compendium-footer .source {
   color: #ffffff;
@@ -284,7 +293,7 @@ li.folder > .folder-header .create-button .fa-plus {
   margin: 14px 0px 0px 0px;
 }
 .dragonrace .sheet-panel nav.sheet-tabs a.active {
-  background-color: #ffc80d;
+  background-color: #9dfbff;
 }
 .dragonrace .sheet-panel nav.sheet-tabs a {
   border: 1px solid #19160D;
@@ -293,43 +302,49 @@ li.folder > .folder-header .create-button .fa-plus {
   font-family: Title;
 }
 .dragonrace .sheet-panel .sheet-body {
+  margin-top: 10px;
   border: 1px solid #121212;
   padding: 5px;
 }
 .dragonrace .sheet-panel #stat-panel {
+  gap: 10px;
   height: auto;
   display: grid;
-  grid-template-columns: 100px 1fr 1fr;
-  grid-template-rows: 40px 1fr 1fr;
+  grid-template-columns: 150px 1fr 1fr;
+  grid-template-rows: 60px 1fr 1fr;
   grid-template-areas: "portrait name name" "portrait alacrity chutzpah" "portrait ferociousness scaliness";
-  gap: 10px;
+  row-gap: 10px;
 }
 .dragonrace .sheet-panel #stat-panel .profile-img {
   grid-area: portrait;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   background-color: rgba(25, 22, 13, 0.1);
 }
 .dragonrace .sheet-panel #stat-panel .char-name {
   grid-area: name;
   border-bottom: 0;
+  margin-bottom: 10px;
 }
 .dragonrace .sheet-panel #stat-panel .char-name input {
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 10px;
 }
 .dragonrace .sheet-panel #stat-panel #stat-alacrity,
 .dragonrace .sheet-panel #stat-panel #stat-chutzpah,
 .dragonrace .sheet-panel #stat-panel #stat-ferociousness,
 .dragonrace .sheet-panel #stat-panel #stat-scaliness {
-  grid-area: alacrity;
   gap: 0;
-  margin-top: -10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-template-areas: "title title" "value die";
+  grid-template-columns: auto 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: "title value die";
+  justify-items: stretch;
   align-items: center;
+  border: 1px solid var(--color-border-dark-5);
+  padding: 2px;
 }
 .dragonrace .sheet-panel #stat-panel #stat-alacrity {
   grid-area: alacrity;
@@ -345,6 +360,8 @@ li.folder > .folder-header .create-button .fa-plus {
 }
 .dragonrace .sheet-panel #stat-panel .stat-title {
   grid-area: title;
+  margin-left: 5px;
+  font-size: 1.25em;
 }
 .dragonrace .sheet-panel #stat-panel .stat-button {
   height: 40px;
@@ -353,6 +370,8 @@ li.folder > .folder-header .create-button .fa-plus {
 .dragonrace .sheet-panel #stat-panel .stat-roll-single {
   height: 35px;
   grid-area: die;
+  margin: 0px;
+  cursor: pointer;
 }
 .dragonrace .sheet-panel #stat-panel .stat-value {
   font-size: 45px;
@@ -360,8 +379,6 @@ li.folder > .folder-header .create-button .fa-plus {
   height: 50px;
   text-align: center;
   width: 40px;
-  border: 0;
-  background: transparent;
   grid-area: value;
 }
 .dragonrace .sheet-panel #items-panel .dw-item-list {

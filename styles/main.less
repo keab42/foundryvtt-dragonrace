@@ -7,7 +7,7 @@
     .window-content {
         color: @textColor;
         height: 100%;
-        padding: @margin;
+        padding: @defaultMargin;
         overflow-y: auto;
     }
     .sheet-panel {
@@ -34,46 +34,53 @@
         }
 
         .sheet-body {
+            margin-top: @defaultMargin;
             border: 1px solid @textColor;
             padding: 5px;
         }
 
         #stat-panel {
-            gap: @margin;
+            gap: @defaultMargin;
             height: auto;
             display: grid;
-            grid-template-columns: 100px 1fr 1fr;
-            grid-template-rows: 40px 1fr 1fr;
+            grid-template-columns: 150px 1fr 1fr;
+            grid-template-rows: 60px 1fr 1fr;
             grid-template-areas: "portrait name name" "portrait alacrity chutzpah" "portrait ferociousness scaliness";
-            gap: @margin;
+            row-gap: @defaultMargin;
 
             .profile-img {
                 grid-area: portrait;
-                height: 100px;
+                width: 100%;
+                height: 100%;
                 background-color: fade(@darkColor, 10%);
             }
+
             .char-name {
                 grid-area: name;
                 border-bottom: 0;
+                margin-bottom: @defaultMargin;
 
                 input {
                     width: 100%;
                     height: 100%;
                     margin: 0;
+                    padding: @defaultMargin;
                 }
             }
+
             #stat-alacrity,
             #stat-chutzpah,
             #stat-ferociousness,
             #stat-scaliness {
-                grid-area: alacrity;
                 gap: 0;
-                margin-top: -10px;
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto 1fr;
-                grid-template-areas: "title title" "value die";
+                grid-template-columns: auto 50px 50px;
+                grid-template-rows: auto;
+                grid-template-areas: "title value die";
+                justify-items: stretch;
                 align-items: center;
+                border: 1px solid var(--color-border-dark-5);
+                padding: 2px;
             }
             #stat-alacrity {
                 grid-area: alacrity;
@@ -89,6 +96,8 @@
             }
             .stat-title {
                 grid-area: title;
+                margin-left: 5px;
+                font-size: 1.25em;
             }
             .stat-button {
                 height: 40px;
@@ -97,6 +106,8 @@
             .stat-roll-single {
                 height: 35px;
                 grid-area: die;
+                margin: 0px;
+                cursor: pointer;
             }
             .stat-value {
                 font-size: 45px;
@@ -104,8 +115,6 @@
                 height: 50px;
                 text-align: center;
                 width: 40px;
-                border: 0;
-                background: transparent;
                 grid-area: value;
             }
         }

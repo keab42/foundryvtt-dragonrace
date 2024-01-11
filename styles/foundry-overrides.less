@@ -90,7 +90,7 @@ input[type="datetime-local"] {
 }
 
 .sheet-footer {
-    margin-top: @margin;
+    margin-top: @defaultMargin;
 }
 
 // Icons outside windows
@@ -183,43 +183,54 @@ div.dice-roll {
     width:100%;
     flex: 1;
 
+    .dice-formula {
+        margin: @defaultMargin;
+        padding: 5px;
+    }
+
     .dice-successes {
         text-align: center;
         width: 100%;
-        font-size: 1.5em;
+        font-size: 1.25em;
     }
 
     .dice-values {
         display: flex;
         align-items: center;
+        justify-content: center;
         width: 100%;
         flex-direction: row;
         flex: 1;
 
         .dice-result {
             flex: 1;
+            flex-grow: 0;
+            width: 40px;
             aspect-ratio: 1 / 1;
-            padding: 5px;
+            padding: 2px;
             margin: 5px;
             display: flex;
             align-items: center;
-            background-color: fade(@darkColor, 25%);
-            border: 5px solid var(--color-border-dark-5);
+            background-color: fade(@darkColor, 50%);
+            border: 1px solid var(--color-border-dark-5);
+
 
             div {
                 text-align: center;
-                flex: 1;
-                font-size: 1.5em;
+                width: 40px;
+                font-size: 1.25em;
                 font-weight: bold;
             }
         }
 
         .dice-success {
             border-color: @successColor;
+            box-shadow: 0px 0px 5px 1px @successColor;
         }
 
         .dice-fail {
             border-color: @failColor;
+            box-shadow: 0px 0px 5px 1px @failColor;
         }
     }
 }
