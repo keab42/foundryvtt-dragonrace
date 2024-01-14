@@ -10,25 +10,25 @@
             <div id="stat-alacrity">
                 <div class="stat-title">{{localize 'DR.Alacrity'}}</div>
                 <input name="system.stats.alacrity" class="stat-value" type="number" data-type="Number" value="{{system.stats.alacrity}}" />
-                <img class="stat-roll-single expand no-border" title="{{localize 'DR.AlacrityRollTooltip'}}" data-roll="{{system.stats.alacrity}}d6"
+                <img class="stat-roll-single expand no-border rollable" title="{{localize 'DR.AlacrityRollTooltip'}}" data-roll="{{system.stats.alacrity}}d6"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
             <div id="stat-chutzpah">
                 <div class="stat-title">{{localize 'DR.Chutzpah'}}</div>
                 <input name="system.stats.chutzpah" class="stat-value" type="number" data-type="Number" value="{{system.stats.chutzpah}}" />
-                <img class="stat-roll-single expand no-border" data-roll="{{system.stats.chutzpah}}d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
+                <img class="stat-roll-single expand no-border rollable" data-roll="{{system.stats.chutzpah}}d6" title="{{localize 'DR.ChutzpahRollTooltip'}}"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
             <div id="stat-ferociousness">
                 <div class="stat-title">{{localize 'DR.Ferociousness'}}</div>
                 <input name="system.stats.ferociousness" class="stat-value" type="number" data-type="Number" value="{{system.stats.ferociousness}}" />
-                <img class="stat-roll-single expand no-border" data-roll="{{system.stats.ferociousness}}d6" title="{{localize 'DR.FerociousnessRollTooltip'}}"
+                <img class="stat-roll-single expand no-border rollable" data-roll="{{system.stats.ferociousness}}d6" title="{{localize 'DR.FerociousnessRollTooltip'}}"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
             <div id="stat-scaliness">
                 <div class="stat-title">{{localize 'DR.Scaliness'}}</div>
                 <input name="system.stats.scaliness" class="stat-value" type="number" data-type="Number" value="{{system.stats.scaliness}}" />
-                <img class="stat-roll-single expand no-border" data-roll="{{system.stats.scaliness}}d6" title="{{localize 'DR.ScalinessRollTooltip'}}"
+                <img class="stat-roll-single expand no-border rollable" data-roll="{{system.stats.scaliness}}d6" title="{{localize 'DR.ScalinessRollTooltip'}}"
                     src="/systems/dragon-race/resources/icons/die-six.svg" />
             </div>
         </div>
@@ -51,7 +51,7 @@
                     </li>
                 </ol>
                 <ol class="dw-item-list">
-                    {{#each actor.miscItems}}
+                    {{#each actor.equipment}}
                     <li class="item flexrow" data-item-id="{{_id}}" draggable="true">
                         <div class="item-name flexrow item-roll">
                             <div class="item-image" tabindex="0" role="button" aria-label="{{name}}" style="background-image: url('{{img}}')"></div>

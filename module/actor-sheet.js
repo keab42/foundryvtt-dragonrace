@@ -3,9 +3,9 @@
  * @extends {ActorSheet}
  */
 
- const itemequipmentType = "MiscItem";
+ const itemequipmentType = "Equipment";
 
-export class DragonRaceActorSheet extends ActorSheet {
+ export class DragonRaceActorSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
@@ -41,24 +41,6 @@ export class DragonRaceActorSheet extends ActorSheet {
         html.find(".add-item").click(this._addItem.bind(this));
         html.find(".item-edit").click(this._editItem.bind(this));
         html.find(".item-delete").click(this._deleteItem.bind(this));
-
-        console.log(this.actor.isOwner);
-        // Drag events for macros.
-        if (this.actor.isOwner) {
-            console.log("MKTEST");
-            let handler = ev => this._onDragStart(ev);
-            // Find all items on the character sheet.
-            html.find('img.stat-roll-single').each((i, img) => {
-                console.log(i);
-                console.log(img);
-                // Add draggable attribute and dragstart listener.
-                img.setAttribute("draggable", true);
-                img.addEventListener("dragstart", handler, false);
-          });
-        } else {
-            console.log("MKTEST");
-            console.log("Not Owner");
-        }
     }
 
     async _rollStat(event) {
@@ -108,27 +90,25 @@ export class DragonRaceActorSheet extends ActorSheet {
             roll: roll,
             sound: CONFIG.sounds.dice,
             type: CONST.CHAT_MESSAGE_TYPES.ROLL
-         });
+        });
     }
 
     _getLocalisedStatName(element) {
         let statName = "";
         switch(element.parentElement.id) {
             case "stat-alacrity":
-                statName =  game.i18n.localize("DR.Alacrity");
-                break;
+            statName =  game.i18n.localize("DR.Alacrity");
+            break;
             case "stat-chutzpah":
-                statName =  game.i18n.localize("DR.Chutzpah");
-                break;
+            statName =  game.i18n.localize("DR.Chutzpah");
+            break;
             case "stat-ferociousness":
-                statName =  game.i18n.localize("DR.Ferociousness");
-                break;
+            statName =  game.i18n.localize("DR.Ferociousness");
+            break;
             case "stat-scaliness":
-                statName =  game.i18n.localize("DR.Scaliness");
-                break;
+            statName =  game.i18n.localize("DR.Scaliness");
+            break;
         }
-        console.log("MKTEST");
-        console.log(statName);
 
         return statName
     }
@@ -140,18 +120,18 @@ export class DragonRaceActorSheet extends ActorSheet {
     _prepareCharacterItems(sheetData) {
         const actorData = sheetData.actor;
 
-        const miscItems = [];
+        const equipment = [];
 
         for (let i of sheetData.items) {
             let item = i.datal
             i.img = i.img || DEFAULT_TOKEN;
 
             if (i.type === itemequipmentType){
-                miscItems.push(i);
+                equipment.push(i);
             }
         }
 
-        actorData.miscItems = miscItems;
+        actorData.equipment = equipment;
     }
 
     async _addItem(event) {

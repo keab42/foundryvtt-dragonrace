@@ -24,20 +24,7 @@
   "styles": [
     "styles/main.css"
   ],
-  "packs": [
-    {
-      "name": "equipment",
-      "label": "Equipment",
-      "path": "packs/dragon-race-equipment",
-      "type": "Item",
-      "system": "dragon-race",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    }
-  ],
+  "packs": [],
   "languages": [
     {
       "lang": "en",

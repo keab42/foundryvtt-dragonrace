@@ -53,10 +53,9 @@ Hooks.once("ready", async function () {
     }
 
     RollTable.create(rollTablesToAdd);
+
 });
 
 Hooks.on("renderDragonRaceActorSheet", (ev) => {
    ev.rendering(ev);
 });
-
-Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));
